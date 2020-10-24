@@ -1,0 +1,45 @@
+/* css语法：选择器{属性名：属性值；} */
+/* css选择器：https://www.w3school.com.cn/cssref/css_selectors.asp */
+
+/* HTML选择器(默认标签) */
+h3 {color: brown;font-style: italic;}
+
+/* class选择器(多个标签一个class):  .类名{样式....} */
+.usual_tag {color: chocolate;}
+
+/* id选择器(一个标签仅一个id)：#id名{样式.....} */
+#usual_css_selector{
+    /* font-size: 10px; */
+    padding-left: 36px;
+}
+
+/* 关联选择符： 选择符1 选择符2 选择符3 ...{样式....} */
+div a{font-family: fantasy;} /*只有div标签中的a标签才采⽤此样式*/
+
+/* 组合选择符(选择符组): 选择符1,选择符2,选择符3 ...{样式....} */
+h3,h4,h5 {color: gray;}
+
+/* 伪类(伪元素)选择符： 标签名:伪类名{样式....}*/
+a:link {color: #FF0000; text-decoration: none} /* 未访问的链接 */
+a:visited {color: #00FF00; text-decoration: none} /* 已访问的链接 */
+a:hover {color: #FF00FF; text-decoration: underline} /* ⿏标在链接上 */
+a:active {color: #0000FF; text-decoration: underline} /* 激活链接 */
+
+#box_model{
+    /* width:30px;
+    height:40px; */
+    background:rgba(41, 21, 224, 0.315);
+    padding:20px;
+    border:10px solid rgba(75, 73, 70, 0.349);
+    margin:20px;
+    box-sizing: content-box;
+    /* 默认content-box（width和height只针对content，设置box model数值时往外扩张，不便）； 
+    改成border-box：*{box-sizing:border-box;} */
+}
+
+/*a is the hyperlink type/
+
+a:hover{
+    font-style: italic;
+    color: green;
+}
