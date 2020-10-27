@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="冬咚咚东">
 <meta property="og:description" content="概述 介绍基本概念，诸如进程与线程区别，单核多线程不提高运行速度，同步与异步区别，并发与并行概念区分，死锁概念 介绍线程的六种状态 New、Runnable、Blocked、Waiting、Timed Waiting、Terminated 介绍Java并发的三种方式，即创建Thread子类，实现Runnable接口，实现Callable接口 从线程不安全案例引入，介绍同步代码块、同步方法、显式锁三">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://segmentfault.com/img/bVbRQEo">
 <meta property="article:published_time" content="2020-09-21T13:47:47.000Z">
-<meta property="article:modified_time" content="2020-09-24T09:45:07.181Z">
+<meta property="article:modified_time" content="2020-10-27T03:02:26.057Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVbRQEo">
   
     <link rel="alternative" href="/atom.xml" title="冬咚咚东" type="application/atom+xml">
   
@@ -173,7 +175,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.7k字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -211,9 +213,11 @@
 <hr>
 <p>死锁</p>
 <p>概念： 多个并发进程因争夺系统资源而产生相互等待的现象。</p>
-<p><strong>必要四条件</strong>：互斥（不共享）、不可抢占（独占性）、请求保持、环路等待。</p>
-<p>死锁预防：已有锁对象的方法不调用另一个锁方法，<strong>银行家算法</strong></p>
+<p><strong>必要四条件</strong>：互斥（不共享）、不可剥夺（独占性）、请求保持、环路等待。</p>
+<p>死锁避免：基本思想是系统对进程发出的每一个系统能够满足的资源申请进行动态检查，并根据检查结果决定是否分配资源，如果分配后系统可能发生死锁，则不予分配，否则予以分配，这是一种保证系统不进入死锁状态的动态策略。 <strong>银行家算法</strong></p>
+<p>死锁预防：破坏死锁的四个必要条件之一。已有锁对象的方法不调用另一个锁方法，</p>
 <h1 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h1><p>Java线程对象<code>Thread</code>的状态 (API: Thread State)<br><code>New</code><br><code>Runnable</code>、<code>Blocked</code>、<code>Waiting</code>、<code>Timed Waiting</code><br><code>Terminated</code></p>
+<p><img src="https://segmentfault.com/img/bVbRQEo" alt="Java并发编程艺术 4.1.4节"></p>
 <p><code>main</code>线程在启动<code>t</code>线程后，可以通过<code>t.join()</code>等待<code>t</code>线程结束后再继续运行</p>
 <p>中断一个线程非常简单，只需要在其他线程中对目标线程调用<code>interrupt()</code>方法，目标线程需要反复检测自身状态是否是interrupted状态，如果是，就进行资源释放操作后立刻结束运行。目标线程通过检测<code>isInterrupted()</code>标志或者捕获了<code>InterruptedException</code>获取自身是否已中断，或者用一个使用<code>volatile</code>关键字<code>running</code>标志位来标识线程是否应该继续运行，<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1306580767211554" target="_blank" rel="noopener">具体使用方法</a></p>
 <p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1306580788183074" target="_blank" rel="noopener">守护线程</a>：守护线程是为其他线程服务的线程；在JVM中，所有非守护线程(用户线程)都执行完毕后，无论有没有守护线程，虚拟机都会自动退出。<code>t.setDaemon(true);</code> 守护线程不能持有需要关闭的资源（如打开文件等）</p>
