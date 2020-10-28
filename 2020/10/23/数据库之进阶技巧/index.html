@@ -16,7 +16,7 @@
 <meta property="og:description" content="概述本文主要讲解表联结、事务、存储过程、触发器、视图、索引、SQL优化。 廖雪峰的SQL教程 W2school">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-22T16:30:03.000Z">
-<meta property="article:modified_time" content="2020-10-24T13:02:23.089Z">
+<meta property="article:modified_time" content="2020-10-28T13:50:55.885Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
@@ -173,7 +173,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.2k字</span>
+        <span class="post-count">2.7k字</span>
       </span>
     </span>
 
@@ -182,7 +182,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">10分</span>
       </span>
     </span>
 </div>
@@ -338,6 +338,23 @@
 <li>数据表设计优化：合理拆分，避免冗余</li>
 </ol>
 </blockquote>
+<h2 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h2><p>在诊断应用的滞缓现象和性能问题时，性能不良的数据库（以及数据库查询）通常是最常见的祸因。 （《MySQL必知必会》的内容）</p>
+<blockquote>
+<ul>
+<li>MySQL（与所有DBMS一样）具有特定的硬件建议。 坚持遵循这些硬件建议。 </li>
+<li>关键的生产DBMS应该运行在自己的专用服务器上 </li>
+<li>MySQL是用一系列的默认设置预先配置的，从这些设置开始通常是很好的。但过一段时间后你可能需要调整内存分配、缓冲区大小等。（为查看当前设置，可使用 SHOW VARIABLES;和 SHOW STATUS; )</li>
+<li>[!] MySQL是一个多用户多线程的DBMS，换言之，它经常同时执行多个任务。如果这些任务中的某一个执行缓慢，则所有请求都会执行缓慢。如果你遇到显著的性能不良，可使用<code>SHOW PROCESSLIST</code>显示所有活动进程（以及它们的线程ID和执行时间）, KILL命令终结某个特定的进程 </li>
+<li>使用EXPLAIN语句让MySQL解释它将如何执行一条SELECT语句。 一个SELECT语句 应该试验联结、并、子查询等，找出最佳的方法。 </li>
+<li>你的SELECT语句中有一系列复杂的OR条件吗？通过使用多条SELECT语句和连接它们的UNION语句，你能看到极大的性能改进。 </li>
+<li>存储过程执行得比一条一条地执行其中的各条MySQL语句快 。</li>
+<li>使用正确的数据类型 </li>
+<li>不要检索比需求还要多的数据。换言之，尽可能不要用SELECT * </li>
+<li>有的操作（包括INSERT）支持一个可选的DELAYED关键字，如果使用它，将把控制立即返回给调用程序，并且一旦有可能就实际执行该操作。 </li>
+<li>建立数据库表常用列索引以改善数据检索的性能。 索引改善数据检索的性能，但损害数据插入、删除和更新的性能。如果你有一些表，它们收集数据且不经常被搜索，则在有必要之前不要索引它们。 </li>
+<li>LIKE很慢。一般来说，最好是使用FULLTEXT而不是LIKE。 </li>
+</ul>
+</blockquote>
 
       
 
@@ -480,7 +497,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL详解"><span class="toc-number">2.</span> <span class="toc-text">NULL详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表联接-join"><span class="toc-number">3.</span> <span class="toc-text">表联接(join)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务-transaction"><span class="toc-number">4.</span> <span class="toc-text">事务(transaction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程-procedure"><span class="toc-number">5.</span> <span class="toc-text">存储过程(procedure)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触发器-trigger"><span class="toc-number">6.</span> <span class="toc-text">触发器(trigger)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图-view"><span class="toc-number">7.</span> <span class="toc-text">视图(view)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引-Index"><span class="toc-number">8.</span> <span class="toc-text">索引(Index)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#慢查询"><span class="toc-number">9.</span> <span class="toc-text">慢查询</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL详解"><span class="toc-number">2.</span> <span class="toc-text">NULL详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表联接-join"><span class="toc-number">3.</span> <span class="toc-text">表联接(join)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务-transaction"><span class="toc-number">4.</span> <span class="toc-text">事务(transaction)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程-procedure"><span class="toc-number">5.</span> <span class="toc-text">存储过程(procedure)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触发器-trigger"><span class="toc-number">6.</span> <span class="toc-text">触发器(trigger)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图-view"><span class="toc-number">7.</span> <span class="toc-text">视图(view)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引-Index"><span class="toc-number">8.</span> <span class="toc-text">索引(Index)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#慢查询"><span class="toc-number">9.</span> <span class="toc-text">慢查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能调优"><span class="toc-number">10.</span> <span class="toc-text">性能调优</span></a></li></ol>
                     </div>
                 </span>
             </div>
