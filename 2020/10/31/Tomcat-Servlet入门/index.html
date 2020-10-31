@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weidongz.github.io">
-  <title>Tomcat&amp;Servlet入门 | 冬咚咚东</title>
+  <title>Tomcat搭建与Servlet入门 | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tomcat 服务器开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）   Tomcat目录介绍  bin : 存放tomcat的命令, startup 用来启动tomcat ,shutdown 用来关闭tomcat  conf：存放tomcat的一些配置文件。server.xml可以设置端口号、设置域名或">
+  <meta name="description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，Session，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat&amp;Servlet入门">
+<meta property="og:title" content="Tomcat搭建与Servlet入门">
 <meta property="og:url" content="https://weidongz.github.io/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="Tomcat 服务器开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）   Tomcat目录介绍  bin : 存放tomcat的命令, startup 用来启动tomcat ,shutdown 用来关闭tomcat  conf：存放tomcat的一些配置文件。server.xml可以设置端口号、设置域名或">
+<meta property="og:description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，Session，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16436080-356eabfb696a3563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/856/format/webp">
 <meta property="article:published_time" content="2020-10-31T02:17:40.000Z">
-<meta property="article:modified_time" content="2020-10-31T11:56:47.980Z">
+<meta property="article:modified_time" content="2020-10-31T13:31:58.479Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -153,7 +153,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Tomcat&amp;Servlet入门
+      Tomcat搭建与Servlet入门
     </h1>
   
 
@@ -176,7 +176,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.5k字</span>
+        <span class="post-count">2.6k字</span>
       </span>
     </span>
 
@@ -195,7 +195,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Tomcat-服务器"><a href="#Tomcat-服务器" class="headerlink" title="Tomcat 服务器"></a><a href="https://tomcat.apache.org/" target="_blank" rel="noopener">Tomcat 服务器</a></h2><p>开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）  </p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tomcat环境搭建及基本配置，和各子目录作用。</p>
+<p>Servlet生命周期，Request请求、Response响应，Get、Post，Session，<code>@WebServlet</code>注解<br>重定向<code>SendDirect</code>与转发<code>RequestDispatcher.forward</code>的区别</p>
+<a id="more"></a>
+
+<h2 id="Tomcat-服务器"><a href="#Tomcat-服务器" class="headerlink" title="Tomcat 服务器"></a><a href="https://tomcat.apache.org/" target="_blank" rel="noopener">Tomcat 服务器</a></h2><p>开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）  </p>
 <h3 id="Tomcat目录介绍"><a href="#Tomcat目录介绍" class="headerlink" title="Tomcat目录介绍"></a><a href="https://www.cnblogs.com/shoshana-kong/p/10682697.html" target="_blank" rel="noopener">Tomcat目录介绍</a></h3><blockquote>
 <ol>
 <li>bin : <strong>存放tomcat的命令</strong>, startup 用来启动tomcat ,shutdown 用来关闭tomcat </li>
@@ -230,7 +234,7 @@
 <li>WEB-INF/ 的 <strong>web.xml</strong> <a href="https://www.runoob.com/servlet/servlet-first-example.html" target="_blank" rel="noopener">配置映射关系</a></li>
 <li>运行 index.jsp 程序，注意如果有乱码参照<a href="https://www.cnblogs.com/cheng-/p/12347694.html" target="_blank" rel="noopener">该文</a>修改IDEA的tomcat编码格式</li>
 </ol>
-<p>Servlet容器调用Servlet的service（ServletRequest sReq, ServletResponse sRes）方法处理用户请求。<br><code>ServletReques</code>t对象封装了当前的Http请求，因此，开发人员不必解析和操作原始的Http数据。<br><code>ServletResponse</code>对象表示当前的Http响应，直接操作<code>ServletResponse</code>对象就能把响应轻松的发回给用户。<br>Servlet容器还会创建一个<code>ServletContext</code>对象。这个对象中封装了上下文（应用程序）的环境详情。每个应用程序只有一个ServletContext。每个Servlet对象也都有一个封装Servlet配置的<code>ServletConfig</code>对象。 </p>
+<p>Servlet容器调用Servlet的service（ServletRequest sReq, ServletResponse sRes）方法处理用户请求。<br><code>ServletRequest</code>对象封装了当前的Http请求，因此，开发人员不必解析和操作原始的Http数据。<br><code>ServletResponse</code>对象表示当前的Http响应，直接操作<code>ServletResponse</code>对象就能把响应轻松的发回给用户。<br>Servlet容器还会创建一个<code>ServletContext</code>对象。这个对象中封装了上下文（应用程序）的环境详情。每个应用程序只有一个ServletContext。每个Servlet对象也都有一个封装Servlet配置的<code>ServletConfig</code>对象。 </p>
 <h3 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期(*)"></a>Servlet生命周期(*)</h3><ul>
 <li>实例化: 客户端 首次发送Http请求后，由Servlet容器 – Web服务器(tomcat)去解析请求 , 根据请求找到对应的Servlet, 创建Servlet实例，若第二次请求则判断Servlet对象是否存在 ，不再执行init()，而直接执行service()方法 。</li>
 <li>初始化: Servlet 初始化后调用 <strong>init ()</strong> 方法。</li>
@@ -260,7 +264,8 @@
 </ol>
 <h3 id="HttpServletResponse-响应"><a href="#HttpServletResponse-响应" class="headerlink" title="HttpServletResponse 响应"></a>HttpServletResponse 响应</h3><p>从后台向前端发送响应状态码，响应消息头，响应消息体的方法。 </p>
 <p>void addCookie(Cookie var1);//给这个响应添加一个cookie<br>void sendRedirect(String var1) ;//发送一条响应码，将浏览器跳转到指定的位置<br>PrintWriter getWriter() 获得字符流，通过字符流的write(String s)方法可以将字符串设置到response 缓冲区中，<br>随后Tomcat会将response缓冲区中的内容组装成Http响应返回给浏览器端。<br>setContentType() 设置响应内容的类型 </p>
-<h3 id="转发与重定向"><a href="#转发与重定向" class="headerlink" title="转发与重定向"></a><a href="https://blog.csdn.net/weixin_40001125/article/details/88663468" target="_blank" rel="noopener">转发与重定向</a></h3><p>重定向:response.sendRedirect()<br>转发:request.getRequestDispatcher(“../success.jsp”).forward(request,response); </p>
+<h3 id="转发与重定向"><a href="#转发与重定向" class="headerlink" title="转发与重定向"></a><a href="https://blog.csdn.net/weixin_40001125/article/details/88663468" target="_blank" rel="noopener">转发与重定向</a></h3><p>重定向:response.sendRedirect() </p>
+<p>转发: request.getRequestDispatcher(“../success.jsp”).forward(request,response); </p>
 <p>重定向时地址栏会改变,request中存储的数据会丢失.转发时地址栏显示的是请求页面的地址,request数据可以保<br>存。<br>转发属于一次请求一次响应,重定向属于两次请求(地址栏修改了两次)两次响应 。</p>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>从打开浏览器到关闭浏览器,期间访问服务器就称为一次会话 .</p>
 <p>服务端需要用 Session机制 来识别具体的用户，以记录、跟踪用户的状态。第一次登录成功后，Session会产生一个唯一的id。浏览器之后访问时，服务器发现 Session id值相同，说明当前访问的属于同一个会话，直接关闭浏览器 Session失效。</p>
@@ -455,7 +460,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-服务器"><span class="toc-number">1.</span> <span class="toc-text">Tomcat 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat目录介绍"><span class="toc-number">1.1.</span> <span class="toc-text">Tomcat目录介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA配置Tomcat"><span class="toc-number">1.2.</span> <span class="toc-text">IDEA配置Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-2020-2创建JavaWeb项目"><span class="toc-number">1.3.</span> <span class="toc-text">IDEA 2020 .2创建JavaWeb项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat修改端口号"><span class="toc-number">1.4.</span> <span class="toc-text">Tomcat修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat添加管理员"><span class="toc-number">1.5.</span> <span class="toc-text">Tomcat添加管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">2.</span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet简介"><span class="toc-number">2.1.</span> <span class="toc-text">Servlet简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet程序"><span class="toc-number">2.2.</span> <span class="toc-text">Servlet程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet生命周期"><span class="toc-number">2.3.</span> <span class="toc-text">Servlet生命周期(*)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletRequest请求"><span class="toc-number">2.4.</span> <span class="toc-text">HttpServletRequest请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端HTML到后台服务器的多种请求方式"><span class="toc-number">2.5.</span> <span class="toc-text">前端HTML到后台服务器的多种请求方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletResponse-响应"><span class="toc-number">2.6.</span> <span class="toc-text">HttpServletResponse 响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转发与重定向"><span class="toc-number">2.7.</span> <span class="toc-text">转发与重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">2.8.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化参数"><span class="toc-number">2.9.</span> <span class="toc-text">初始化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注解配置Servlet信息"><span class="toc-number">2.10.</span> <span class="toc-text">注解配置Servlet信息</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-服务器"><span class="toc-number">2.</span> <span class="toc-text">Tomcat 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat目录介绍"><span class="toc-number">2.1.</span> <span class="toc-text">Tomcat目录介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA配置Tomcat"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA配置Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-2020-2创建JavaWeb项目"><span class="toc-number">2.3.</span> <span class="toc-text">IDEA 2020 .2创建JavaWeb项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat修改端口号"><span class="toc-number">2.4.</span> <span class="toc-text">Tomcat修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat添加管理员"><span class="toc-number">2.5.</span> <span class="toc-text">Tomcat添加管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">3.</span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet简介"><span class="toc-number">3.1.</span> <span class="toc-text">Servlet简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet程序"><span class="toc-number">3.2.</span> <span class="toc-text">Servlet程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet生命周期"><span class="toc-number">3.3.</span> <span class="toc-text">Servlet生命周期(*)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletRequest请求"><span class="toc-number">3.4.</span> <span class="toc-text">HttpServletRequest请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端HTML到后台服务器的多种请求方式"><span class="toc-number">3.5.</span> <span class="toc-text">前端HTML到后台服务器的多种请求方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletResponse-响应"><span class="toc-number">3.6.</span> <span class="toc-text">HttpServletResponse 响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转发与重定向"><span class="toc-number">3.7.</span> <span class="toc-text">转发与重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">3.8.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化参数"><span class="toc-number">3.9.</span> <span class="toc-text">初始化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注解配置Servlet信息"><span class="toc-number">3.10.</span> <span class="toc-text">注解配置Servlet信息</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

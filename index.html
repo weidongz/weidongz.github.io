@@ -149,7 +149,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/">Tomcat&amp;Servlet入门</a>
+      <a class="article-title" href="/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/">Tomcat搭建与Servlet入门</a>
     </h1>
   
 
@@ -168,7 +168,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.5k字</span>
+        <span class="post-count">2.6k字</span>
       </span>
     </span>
 
@@ -187,134 +187,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Tomcat-服务器"><a href="#Tomcat-服务器" class="headerlink" title="Tomcat 服务器"></a><a href="https://tomcat.apache.org/" target="_blank" rel="noopener">Tomcat 服务器</a></h2><p>开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）  </p>
-<h3 id="Tomcat目录介绍"><a href="#Tomcat目录介绍" class="headerlink" title="Tomcat目录介绍"></a><a href="https://www.cnblogs.com/shoshana-kong/p/10682697.html" target="_blank" rel="noopener">Tomcat目录介绍</a></h3><blockquote>
-<ol>
-<li>bin : <strong>存放tomcat的命令</strong>, startup 用来启动tomcat ,shutdown 用来关闭tomcat </li>
-<li>conf：<strong>存放tomcat的一些配置文件。</strong><br>server.xml可以设置端口号、设置域名或IP、默认加载的项目、请求编码<br>web.xml可以设置tomcat支持的文件类型<br>context.xml可以用来配置数据源之类的<br>tomcat-users.xml用来配置管理tomcat的用户与权限 </li>
-<li>lib: <strong>存放tomcat类库即jar包</strong></li>
-<li>logs: 存放tomcat在运行过程中产生的日志文件</li>
-<li>webapps：<strong>存放Web项目</strong>，当tomcat启动时会去加载webapps目录下的应用程序。</li>
-<li>work: <strong>存放tomcat在运行时的编译后文件</strong></li>
-</ol>
-</blockquote>
-<p>运行<code>webapps</code>内的<code>HTML_tutor.html</code>文件：先运行bin文件夹下的<code>startup.sh</code>，再在地址栏输入<code>http://localhost:8080/myhtml/HTML_tutor.html</code></p>
-<h3 id="IDEA配置Tomcat"><a href="#IDEA配置Tomcat" class="headerlink" title="IDEA配置Tomcat"></a><a href="https://www.cnblogs.com/weixinyu98/p/9822048.html" target="_blank" rel="noopener">IDEA配置Tomcat</a></h3><p>Run—EDit Configurations  –&gt; “+”号，Tomcat Server—Local –&gt;Application server项目下，点击 Configuration ，找到本地 Tomcat 服务器，再点击 OK按钮。 </p>
-<p><strong>Deployment添加一个artifact，将Application context改成/</strong></p>
-<h3 id="IDEA-2020-2创建JavaWeb项目"><a href="#IDEA-2020-2创建JavaWeb项目" class="headerlink" title="IDEA 2020 .2创建JavaWeb项目"></a><a href="https://blog.csdn.net/qq_43441078/article/details/107912291" target="_blank" rel="noopener">IDEA 2020 .2创建JavaWeb项目</a></h3><p>! 不能在外部打开tomcat（也就是运行了tomcat/bin下的startup脚本）的情况下运行web项目，运行shutdown.sh关闭tomcat服务器。</p>
-<p>按推荐网址般配置Java项目为web开发项目。</p>
-<p>创建classes和lib文件夹，File中 –&gt; Project Structure Modules ，Paths选项卡选中Use module compile output path ,把路径改成刚刚创建的classes文件夹，Dependencies选项卡点击”+”号，选择1 JARs or directories ，选中jar Directory。<br>classes放html源文件，lib放依赖包jar文件</p>
-<h3 id="Tomcat修改端口号"><a href="#Tomcat修改端口号" class="headerlink" title="Tomcat修改端口号"></a>Tomcat修改端口号</h3><p>修改配置文件:/conf/server.xml ，<a href="https://how2j.cn/k/tomcat/tomcat-port/542.html" target="_blank" rel="noopener">参考</a></p>
-<h3 id="Tomcat添加管理员"><a href="#Tomcat添加管理员" class="headerlink" title="Tomcat添加管理员"></a>Tomcat添加管理员</h3><p><a href="https://blog.csdn.net/sinat_34104446/article/details/79761968" target="_blank" rel="noopener">Tomcat设置管理员账号以后才能管理内容如Server Status、Manager App</a></p>
-<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304265949708322" target="_blank" rel="noopener">Servlet简介</a></h3><p>Java Servlet 是运行在 Web 服务器或 应用服务器上的程序<br>使用 Servlet，收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。<br>Servlet工作模式：客户端发送请求至服务器 –&gt;服务器启动并调用Servlet，Servlet根据客户端请求生成响应内容并将其传给服务器 –&gt;服务器将响应返回客户端 </p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg" alt="Servlet作用"></p>
-<h3 id="Servlet程序"><a href="#Servlet程序" class="headerlink" title="Servlet程序"></a>Servlet程序</h3><blockquote>
-<p>Servlet并不是直接运行，而是由Web服务器加载后创建实例运行，所以，类似Tomcat这样的Web服务器也称为Servlet容器。</p>
-<ul>
-<li>无法在代码中直接通过new创建Servlet实例，<br>Servlet容器将Servlet类载入内存，并产生Servlet实例和调用它具体的方法。<br>必须由Servlet容器自动创建Servlet实例；</li>
-<li>Servlet容器Servlet类是单例模式，在一个应用程序中，只会给每个Servlet类创建唯一实例；</li>
-<li>Servlet容器会使用多线程执行<code>doGet()</code>或<code>doPost()</code>方法，注意线程安全。</li>
-</ul>
-</blockquote>
-<p>前往tomcat的lib目录找到<code>servlet-api.jar</code>放入IDEA的Web项目lib目录，此时便可使用Servlet接口</p>
-<ol>
-<li>创建一个类实现Servlet接口, 重写方法。或继承HttpServlet亦可 </li>
-<li>WEB-INF/ 的 <strong>web.xml</strong> <a href="https://www.runoob.com/servlet/servlet-first-example.html" target="_blank" rel="noopener">配置映射关系</a></li>
-<li>运行 index.jsp 程序，注意如果有乱码参照<a href="https://www.cnblogs.com/cheng-/p/12347694.html" target="_blank" rel="noopener">该文</a>修改IDEA的tomcat编码格式</li>
-</ol>
-<p>Servlet容器调用Servlet的service（ServletRequest sReq, ServletResponse sRes）方法处理用户请求。<br><code>ServletReques</code>t对象封装了当前的Http请求，因此，开发人员不必解析和操作原始的Http数据。<br><code>ServletResponse</code>对象表示当前的Http响应，直接操作<code>ServletResponse</code>对象就能把响应轻松的发回给用户。<br>Servlet容器还会创建一个<code>ServletContext</code>对象。这个对象中封装了上下文（应用程序）的环境详情。每个应用程序只有一个ServletContext。每个Servlet对象也都有一个封装Servlet配置的<code>ServletConfig</code>对象。 </p>
-<h3 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期(*)"></a>Servlet生命周期(*)</h3><ul>
-<li>实例化: 客户端 首次发送Http请求后，由Servlet容器 – Web服务器(tomcat)去解析请求 , 根据请求找到对应的Servlet, 创建Servlet实例，若第二次请求则判断Servlet对象是否存在 ，不再执行init()，而直接执行service()方法 。</li>
-<li>初始化: Servlet 初始化后调用 <strong>init ()</strong> 方法。</li>
-<li>处理请求: Servlet 调用 <strong>service()</strong> 方法来处理客户端的请求。</li>
-<li>服务终止: Servlet 销毁前调用 <strong>destroy()</strong> 方法。</li>
-<li>垃圾回收: Servlet实例 是由 虚拟机JVM 的垃圾回收器GC 进行内存回收的。</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/16436080-356eabfb696a3563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/856/format/webp" alt="Servlet的生命周期"></p>
-<h3 id="HttpServletRequest请求"><a href="#HttpServletRequest请求" class="headerlink" title="HttpServletRequest请求"></a>HttpServletRequest请求</h3><p>扩展于javax.servlet.<a href="http://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html" target="_blank" rel="noopener">ServletRequest</a>接口，<br>生成一个子类LoginServlet继承HttpServlet，重写init(), destory(), doGet(), doPost()</p>
-<p>HTML页面发送请求(<code>method=&quot;post&quot;</code>) –&gt; web.xml匹配对应的servlet(<code>&lt;url-pattern&gt;/login&lt;/url-pattern&gt;</code>) –&gt; LoginServlet的doPost()方法处理</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  login.html  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    useername: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"myUserName"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    password: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"myPassWord"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    Hobbit: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>&gt;</span> 篮球</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"badminton"</span>&gt;</span>羽毛球</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  web.xml  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>myloginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.weidong.web.LoginServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span><span class="comment">&lt;!-- mapping 表示映射 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>myloginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/login<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        req.setCharacterEncoding(<span class="string">"utf-8"</span>); <span class="comment">//get请求编码已在tomcat 9设置UTF-8</span></span><br><span class="line">        String myUserName = req.getParameter(<span class="string">"myUserName"</span>);</span><br><span class="line">        String myPassWord = req.getParameter(<span class="string">"myPassWord"</span>);</span><br><span class="line">        System.out.println(<span class="string">"myname="</span>+ myUserName + <span class="string">"myPass"</span>+ myPassWord);</span><br><span class="line">        String[] hobbies = req.getParameterValues(<span class="string">"hobby"</span>);</span><br><span class="line">        req.getRequestDispatcher(<span class="string">"sucess.html"</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="前端HTML到后台服务器的多种请求方式"><a href="#前端HTML到后台服务器的多种请求方式" class="headerlink" title="前端HTML到后台服务器的多种请求方式"></a>前端HTML到后台服务器的多种请求方式</h3><ol>
-<li><p>通过表单 post提交 （安全）或者 get请求（显示在地址栏）</p>
-</li>
-<li><p>通过a标签发送数据（get提交） </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 格式 &lt;a href="请求名?key=value&amp;key=value&amp;key=value..."&gt;</span></span><br><span class="line"><span class="comment">	key值=表单元素的控件名，value值=表单中控件的value属性值，</span></span><br><span class="line"><span class="comment">	第一个参数使用?拼接,之后的参数使用&amp;拼接 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/login?a=10&amp;name=abc&amp;pass=123"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过地址栏直接拼接-get请求 (如上以 ? 和 &amp; 拼接)</p>
-</li>
-<li><p>js提交数据-get请求 <code>location.href=&quot;目标请求?key=value&amp;key=value&quot;</code></p>
-</li>
-</ol>
-<h3 id="HttpServletResponse-响应"><a href="#HttpServletResponse-响应" class="headerlink" title="HttpServletResponse 响应"></a>HttpServletResponse 响应</h3><p>从后台向前端发送响应状态码，响应消息头，响应消息体的方法。 </p>
-<p>void addCookie(Cookie var1);//给这个响应添加一个cookie<br>void sendRedirect(String var1) ;//发送一条响应码，将浏览器跳转到指定的位置<br>PrintWriter getWriter() 获得字符流，通过字符流的write(String s)方法可以将字符串设置到response 缓冲区中，<br>随后Tomcat会将response缓冲区中的内容组装成Http响应返回给浏览器端。<br>setContentType() 设置响应内容的类型 </p>
-<h3 id="转发与重定向"><a href="#转发与重定向" class="headerlink" title="转发与重定向"></a><a href="https://blog.csdn.net/weixin_40001125/article/details/88663468" target="_blank" rel="noopener">转发与重定向</a></h3><p>重定向:response.sendRedirect()<br>转发:request.getRequestDispatcher(“../success.jsp”).forward(request,response); </p>
-<p>重定向时地址栏会改变,request中存储的数据会丢失.转发时地址栏显示的是请求页面的地址,request数据可以保<br>存。<br>转发属于一次请求一次响应,重定向属于两次请求(地址栏修改了两次)两次响应 。</p>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>从打开浏览器到关闭浏览器,期间访问服务器就称为一次会话 .</p>
-<p>服务端需要用 Session机制 来识别具体的用户，以记录、跟踪用户的状态。第一次登录成功后，Session会产生一个唯一的id。浏览器之后访问时，服务器发现 Session id值相同，说明当前访问的属于同一个会话，直接关闭浏览器 Session失效。</p>
-<p>Request请求仅保存于单次请求，重定向将丢失Request值，而Session的数据可以在多个页面中共享  重定向页面不会丢失Session数据。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//http://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpSession.html</span></span><br><span class="line">HttpSession session = req.getSession();</span><br><span class="line">System.out.println(<span class="string">"Session ID:"</span>+session.getId());</span><br><span class="line"><span class="comment">//以key/value的形式保存对象值,将数据存储在服务器端</span></span><br><span class="line">session.setAttribute(<span class="string">"name"</span>,<span class="string">"weidong"</span>);</span><br><span class="line">System.out.println(session.getAttribute(<span class="string">"name"</span>));</span><br><span class="line">session.removeAttribute(<span class="string">"name"</span>);</span><br><span class="line">session.setMaxInactiveInterval(<span class="number">10</span>*<span class="number">60</span>); <span class="comment">//设置有效时间为10分钟</span></span><br><span class="line"><span class="comment">// getMaxInactiveInterval()获取session的有效非活动时间(以秒为单位)，默认的有效时间:30分钟</span></span><br><span class="line">session.invalidate();<span class="comment">//设置session对象失效</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//web.xml 设置session有效时间为10分钟</span><br><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>10<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span>//单位:分钟</span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面自动刷新, 注：其中10指每隔10秒刷新一次页面.--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"10"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h3><p>方式一：<code>web.xml</code>定义初始化参数 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span><span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span><span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>servlet实现类中获得初始化参数，重写init()方法，局部初始化</p>
-<p>servlet执行顺序： 请求-&gt;init()-&gt;service()-&gt;doget/dopost-&gt;destory(); </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">	encoding= config.getInitParameter(<span class="string">"encoding"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方式二：全局初始化参数 </p>
-<p><code>web.xml</code>定义context-param</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>bianma<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>servlet重写init()方法，全局初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void init(ServletConfig config) throws ServletException &#123;</span><br><span class="line">	bianma&#x3D;config.getServletContext().getInitParameter(&quot;bianma&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注解配置Servlet信息"><a href="#注解配置Servlet信息" class="headerlink" title="注解配置Servlet信息"></a>注解配置Servlet信息</h3><p>Servlet3.0开始，配置Servlet支持注解方式@WebServlet，而不再需要进行繁琐的<code>web.xml</code>文件创建修改。</p>
-<table>
-<thead>
-<tr>
-<th><a href="https://developer.ibm.com/zh/articles/j-lo-servlet30/" target="_blank" rel="noopener">@WebServlet属性</a></th>
-<th>取值类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>loadOnStartup</td>
-<td>int</td>
-<td>标记容器是否在启动应用时就加载Servlet，<br />默认不配置或数值为负数时表示客户端第一次请求Servlet时再加载；<br />0或正数表示启动应用就加载，正数情况下，数值越小，加载该Servlet的优先级越高。</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>通过getServletName()可以获取到，<br />若不指定，则为Servlet的完整类名，如：<code>com.weidong.web.LoginServle</code></td>
-</tr>
-<tr>
-<td>urlPatterns</td>
-<td>String[]</td>
-<td>配置多个请求地址的映射，<br />如：urlPatterns={“/user/test”, “/user/example”}，<br />此外：/*或者/：配置所有请求映射<br />*.do：拦截指定后缀，<br />test*.do是非法的，应该是/test*.do</td>
-</tr>
-<tr>
-<td>initParams</td>
-<td>WebInitParam[]</td>
-<td>指定一组 Servlet 初始化参数</td>
-</tr>
-<tr>
-<td>asyncSupported</td>
-<td>boolean</td>
-<td>声明 Servlet 是否支持异步操作模式</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(urlPatterns = <span class="string">"/"</span>, initParams = &#123;<span class="meta">@WebInitParam</span>(name = <span class="string">"encoding"</span>, value = <span class="string">"utf-8"</span>)&#125;, loadOnStartup = <span class="number">1</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestServletAnnotation</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    String encoding = <span class="keyword">null</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        System.out.println((<span class="string">"servletName："</span> + getServletName() ));</span><br><span class="line">        encoding= config.getInitParameter(<span class="string">"encoding"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.doGet(req, resp);</span><br><span class="line">        req.setCharacterEncoding(encoding);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tomcat环境搭建及基本配置，和各子目录作用。</p>
+<p>Servlet生命周期，Request请求、Response响应，Get、Post，Session，<code>@WebServlet</code>注解<br>重定向<code>SendDirect</code>与转发<code>RequestDispatcher.forward</code>的区别</p>
+        
+          <a class="article-more-a" href="/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/#more">more >></a>
+        
       
 
       
