@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16436080-356eabfb696a3563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/856/format/webp">
 <meta property="article:published_time" content="2020-10-31T02:17:40.000Z">
-<meta property="article:modified_time" content="2020-10-31T13:31:58.479Z">
+<meta property="article:modified_time" content="2020-10-31T16:38:06.116Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -215,7 +215,7 @@
 <p><strong>Deployment添加一个artifact，将Application context改成/</strong></p>
 <h3 id="IDEA-2020-2创建JavaWeb项目"><a href="#IDEA-2020-2创建JavaWeb项目" class="headerlink" title="IDEA 2020 .2创建JavaWeb项目"></a><a href="https://blog.csdn.net/qq_43441078/article/details/107912291" target="_blank" rel="noopener">IDEA 2020 .2创建JavaWeb项目</a></h3><p>! 不能在外部打开tomcat（也就是运行了tomcat/bin下的startup脚本）的情况下运行web项目，运行shutdown.sh关闭tomcat服务器。</p>
 <p>按推荐网址般配置Java项目为web开发项目。</p>
-<p>创建classes和lib文件夹，File中 –&gt; Project Structure Modules ，Paths选项卡选中Use module compile output path ,把路径改成刚刚创建的classes文件夹，Dependencies选项卡点击”+”号，选择1 JARs or directories ，选中jar Directory。<br>classes放html源文件，lib放依赖包jar文件</p>
+<p>在<code>web.WEB_INF</code>目录里创建classes和lib文件夹 (不能放错！不然servlet找不到库文件)，<br>File中 –&gt; Project Structure Modules ，Paths选项卡选中Use module compile output path ,把路径改成刚刚创建的classes文件夹，Dependencies选项卡点击”+”号，选择1 JARs or directories ，选中jar Directory。<br>classes放html源文件，lib放依赖包jar文件</p>
 <h3 id="Tomcat修改端口号"><a href="#Tomcat修改端口号" class="headerlink" title="Tomcat修改端口号"></a>Tomcat修改端口号</h3><p>修改配置文件:/conf/server.xml ，<a href="https://how2j.cn/k/tomcat/tomcat-port/542.html" target="_blank" rel="noopener">参考</a></p>
 <h3 id="Tomcat添加管理员"><a href="#Tomcat添加管理员" class="headerlink" title="Tomcat添加管理员"></a>Tomcat添加管理员</h3><p><a href="https://blog.csdn.net/sinat_34104446/article/details/79761968" target="_blank" rel="noopener">Tomcat设置管理员账号以后才能管理内容如Server Status、Manager App</a></p>
 <h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304265949708322" target="_blank" rel="noopener">Servlet简介</a></h3><p>Java Servlet 是运行在 Web 服务器或 应用服务器上的程序<br>使用 Servlet，收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。<br>Servlet工作模式：客户端发送请求至服务器 –&gt;服务器启动并调用Servlet，Servlet根据客户端请求生成响应内容并将其传给服务器 –&gt;服务器将响应返回客户端 </p>
