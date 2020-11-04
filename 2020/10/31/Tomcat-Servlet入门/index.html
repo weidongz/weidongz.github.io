@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="https://weidongz.github.io">
   <title>Tomcat搭建与Servlet入门 | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，Session，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别">
+  <meta name="description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别 web.xml定义初始化参数，Servlet获取 注解@WebServlet 实现Servlet配置 会话跟踪技术Cookie与Session F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat搭建与Servlet入门">
 <meta property="og:url" content="https://weidongz.github.io/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，Session，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别">
+<meta property="og:description" content="概述Tomcat环境搭建及基本配置，和各子目录作用。 Servlet生命周期，Request请求、Response响应，Get、Post，@WebServlet注解重定向SendDirect与转发RequestDispatcher.forward的区别 web.xml定义初始化参数，Servlet获取 注解@WebServlet 实现Servlet配置 会话跟踪技术Cookie与Session F">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16436080-356eabfb696a3563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/856/format/webp">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/01/20161112201612568.png">
 <meta property="article:published_time" content="2020-10-31T02:17:40.000Z">
-<meta property="article:modified_time" content="2020-10-31T16:38:06.116Z">
+<meta property="article:modified_time" content="2020-11-04T09:09:05.321Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -176,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.6k字</span>
+        <span class="post-count">4.1k字</span>
       </span>
     </span>
 
@@ -185,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">17分</span>
       </span>
     </span>
 </div>
@@ -196,7 +197,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tomcat环境搭建及基本配置，和各子目录作用。</p>
-<p>Servlet生命周期，Request请求、Response响应，Get、Post，Session，<code>@WebServlet</code>注解<br>重定向<code>SendDirect</code>与转发<code>RequestDispatcher.forward</code>的区别</p>
+<p>Servlet生命周期，Request请求、Response响应，Get、Post，<code>@WebServlet</code>注解<br>重定向<code>SendDirect</code>与转发<code>RequestDispatcher.forward</code>的区别</p>
+<p><code>web.xml</code>定义初始化参数，Servlet获取</p>
+<p>注解<code>@WebServlet</code> 实现Servlet配置</p>
+<p>会话跟踪技术Cookie与Session</p>
+<p>Filter与Listener的入门级介绍</p>
 <a id="more"></a>
 
 <h2 id="Tomcat-服务器"><a href="#Tomcat-服务器" class="headerlink" title="Tomcat 服务器"></a><a href="https://tomcat.apache.org/" target="_blank" rel="noopener">Tomcat 服务器</a></h2><p>开源小型web服务器 ，完全免费，主要用于中小型web项目，只支持Servlet和JSP 等少量javaee规范（就是JavaWeb编程接口）  </p>
@@ -290,7 +295,7 @@
 <p>servlet重写init()方法，全局初始化</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void init(ServletConfig config) throws ServletException &#123;</span><br><span class="line">	bianma&#x3D;config.getServletContext().getInitParameter(&quot;bianma&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="注解配置Servlet信息"><a href="#注解配置Servlet信息" class="headerlink" title="注解配置Servlet信息"></a>注解配置Servlet信息</h3><p>Servlet3.0开始，配置Servlet支持注解方式@WebServlet，而不再需要进行繁琐的<code>web.xml</code>文件创建修改。</p>
+<h3 id="注解配置Servlet信息"><a href="#注解配置Servlet信息" class="headerlink" title="注解配置Servlet信息"></a>注解配置Servlet信息</h3><p>Servlet3.0开始，配置Servlet支持注解方式<code>@WebServlet</code>，而不再需要进行繁琐的<code>web.xml</code>文件创建修改。</p>
 <table>
 <thead>
 <tr>
@@ -326,6 +331,87 @@
 </tr>
 </tbody></table>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(urlPatterns = <span class="string">"/"</span>, initParams = &#123;<span class="meta">@WebInitParam</span>(name = <span class="string">"encoding"</span>, value = <span class="string">"utf-8"</span>)&#125;, loadOnStartup = <span class="number">1</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestServletAnnotation</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    String encoding = <span class="keyword">null</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        System.out.println((<span class="string">"servletName："</span> + getServletName() ));</span><br><span class="line">        encoding= config.getInitParameter(<span class="string">"encoding"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.doGet(req, resp);</span><br><span class="line">        req.setCharacterEncoding(encoding);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="会话跟踪技术"><a href="#会话跟踪技术" class="headerlink" title="会话跟踪技术"></a>会话跟踪技术</h2><p>会话跟踪是Web程序中常用的技术，用来跟踪用户的整个会话。保持对用户会话期间的数据管理。<br>用的会话跟踪技术是Cookie(在客户端记录信息)与Session(在服务器端记录 )。 </p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a><a href="https://www.runoob.com/servlet/servlet-cookies-handling.html" target="_blank" rel="noopener">Cookie</a></h3><p>Cookie是 服务器发给客户端的一个<strong>辨认标识</strong>，Cookie 通常设置在 HTTP 头信息中，保存在客户端，当客户端再次向服务器发送请求时，会携带着这个Cookie，用以识别客户端的<strong>身份</strong>或<strong>状态</strong>等，用以保存不太重要的信息。</p>
+<p>Cookie应用1之保存用户<strong>登陆状态</strong>：将用户的信息保存到Cookie中，并发送给浏览器，并且将<strong>有效时间</strong>设置为一个较长的时间，这样浏览器在以后访问网站时，都会带着该Cookie，服务器以此来辨识用户，用户就不再需要输入用户名和密码等信息。 </p>
+<p>Cookie应用2之记录用户名：一旦用户登录成功以后，下次再登录时，直接将Cookie中的<strong>用户名读取</strong>并显示出来，这样用户就不需要再次输入用户名，只输入密码即可。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端通过HttpServletResponse响应设置cookie</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1. 创建cookie</span></span><br><span class="line">        Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"c1"</span>,<span class="string">"cookieValue"</span>);</span><br><span class="line">        <span class="comment">//2.设置Cookie的有效时间，单位是秒，默认有效时间为一次会话</span></span><br><span class="line">    	cookie.setMaxAge(<span class="number">10</span>*<span class="number">60</span>);<span class="comment">//设置成0是删除cookie的关键</span></span><br><span class="line">        <span class="comment">//3. 服务器发送的响应包里添加cookie</span></span><br><span class="line">        resp.addCookie(cookie);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//服务端获取客户端携带的cookie：通过HttpServletRequest获取</span></span><br><span class="line">&lt;%</span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="keyword">if</span>(cookies != <span class="keyword">null</span>)</span><br><span class="line">    <span class="keyword">for</span>(Cookie c : cookies)&#123;</span><br><span class="line">        String name = c.getName();<span class="comment">//获取Cookie名称</span></span><br><span class="line">        String value = c.getValue();<span class="comment">//获取Cookie的值</span></span><br><span class="line">        bool = Boolean.valueOf(value);<span class="comment">//将值转为Boolean类型</span></span><br><span class="line">	&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Session-1"><a href="#Session-1" class="headerlink" title="Session"></a><a href="https://www.runoob.com/servlet/servlet-session-tracking.html" target="_blank" rel="noopener">Session</a></h3><p><a href="http://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpSession.html" target="_blank" rel="noopener">API文档</a></p>
+<p>三种方式来维持 Web 客户端和 Web 服务器之间的 session 会话：</p>
+<ul>
+<li>Cookies (SessionID)</li>
+<li>隐藏的表单字段 (隐藏HTML 表单字段 以及一个唯一的 session 会话 ID)</li>
+<li>URL 重写 (动态生成每个 URL 来为页面分配一个 session 会话 ID)</li>
+</ul>
+<h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a><a href="https://www.cnblogs.com/chargeworld/p/12243408.html" target="_blank" rel="noopener">Cookie和Session的区别</a></h3><ol>
+<li>Cookie客户端，Session服务器</li>
+<li>服务器的SessionID用Cookie保存在客户端，用户将SessionID提交到服务器获取Session数据，即客户端禁用Cookie的话，Session将失效</li>
+<li>Cookie属于Session对象，Cookie不占用服务器资源，用以保存不重要的信息，Cookie通常认为是不可靠的，单个 Cookie 保存的数据不能超过 4K，Session安全存储、空间无限制，但服务器资源有限，不能无脑存Session。</li>
+<li>存取值的类型不同：<strong>Cookie</strong> 只支持存<strong>字符串数据</strong>，想要设置其他类型的数据，需要将其转换成字符串，<strong>Session</strong> 可以存<strong>任意数据类型</strong>。</li>
+<li>有效期不同： <strong>Cookie</strong> 可设置为<strong>长时间保持</strong>，比如我们经常使用的默认登录功能，<strong>Session</strong> 一般失效时间较<strong>短</strong>，<strong>客户端关闭</strong>（默认情况下）或者 Session 超时都会失效</li>
+</ol>
+<h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a><a href="https://www.runoob.com/jsp/jsp-writing-filters.html" target="_blank" rel="noopener">Filter</a></h2><p>过滤器可以动态地拦截请求和响应，以变换或使用包含在请求或响应中的信息。一般介于客户端和Servlet之间。<br>在客户端的请求访问后端资源之前，拦截这些请求。<br>在服务器的响应发送回客户端之前，处理这些响应。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/01/20161112201612568.png" alt="Filter示意图"></p>
+<ol>
+<li><p>创建一个Java类实现Filter接口 并重写其方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharSetFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123; <span class="comment">//销毁的方法&#125;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse resp, FilterChain chain)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">//过滤方法 主要是对request和response进行一些处理，然后交给下一个过滤器或Servlet处理</span></span><br><span class="line">		chain.doFilter(req, resp);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		<span class="comment">/*初始化方法 接收一个FilterConfig类型的参数 该参数是对Filter的一些配置*/</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置web.xml文件 或者使用注解<code>@WebFilter(urlPatterns = &quot;/*&quot;)</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>过滤器名称<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>过滤器所在的路径<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>过滤器名称<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>需要过滤的资源<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>使用场景：</p>
+<ol>
+<li>处理编码</li>
+<li>登陆权限限制</li>
+<li>加密解密</li>
+<li>非法文字筛选</li>
+<li>下载资源限制</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"过滤器开始执行2"</span>);</span><br><span class="line">       HttpServletRequest request=(HttpServletRequest)servletRequest;</span><br><span class="line">       HttpServletResponse response=(HttpServletResponse)servletResponse;</span><br><span class="line">       request.setCharacterEncoding(<span class="string">"utf-8"</span>);<span class="comment">//处理所有的servlet乱码</span></span><br><span class="line"></span><br><span class="line">       String loginuname = (String)request.getSession().getAttribute(<span class="string">"loginuname"</span>);</span><br><span class="line">       String requestURI = request.getRequestURI();<span class="comment">//获得请求地址</span></span><br><span class="line">       System.out.println(<span class="string">"requestURI="</span>+requestURI);</span><br><span class="line">       <span class="comment">//对某些资源放行（用户未登录的情况下可以访问的资源,或session有值的情况下可以访问）</span></span><br><span class="line"><span class="keyword">if</span>(requestURI.endsWith(<span class="string">"/"</span>)||requestURI.endsWith(<span class="string">"message.jsp"</span>)||requestURI.endsWith(<span class="string">"/index.jsp"</span>)||requestURI.endsWith(<span class="string">"/login"</span>)||loginuname!=<span class="keyword">null</span>)&#123;</span><br><span class="line">           filterChain.doFilter(servletRequest, servletResponse);<span class="comment">//调取下一个servlet或filter</span></span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           response.sendRedirect(<span class="string">"/message.jsp"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println(<span class="string">"过滤器结束执行2"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304266123771937" target="_blank" rel="noopener">Listener</a></h2><p>Listener(监听器) 的相关概念：</p>
+<ul>
+<li>事件源：被监听的对象(三个域对象 <strong>request</strong>、<strong>session</strong>、<strong>servletContext</strong>) </li>
+<li>监听器：监听事件源对象事件源对象的状态的变化都会触发监听器 </li>
+<li>注册监听器：将监听器与事件源进行绑定</li>
+<li>响应行为：监听器监听到事件源的状态变化时所涉及的功能代码</li>
+</ul>
+<p>监听器 就是监听某个域对象状态变化的组件，即 <strong>request</strong>/<strong>session</strong>/<strong>servletContext</strong> 值变化时进行响应行为</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ServletContext域</th>
+<th>HttpSession域</th>
+<th>ServletRequest域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>域对象创建与销毁</td>
+<td>ServletContextListener</td>
+<td>HttpSessionListener</td>
+<td>ServletRequestListener</td>
+</tr>
+<tr>
+<td>域对象属性变化</td>
+<td>ServletContextAttributeListener</td>
+<td>HttpSessionAttributeListener</td>
+<td>ServletRequest<br />AttributeListener</td>
+</tr>
+</tbody></table>
+<p>编写步骤：</p>
+<ul>
+<li>编写监听器类实现Listener接口</li>
+<li>覆盖监听器方法</li>
+<li>web.xml配置注册，或者使用@WebListener注解</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//任何标注为@WebListener，且实现了特定接口的类会被Web服务器自动初始化。</span></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAppListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"WebApp initialized."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"WebApp destoryed."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -469,7 +555,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-服务器"><span class="toc-number">2.</span> <span class="toc-text">Tomcat 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat目录介绍"><span class="toc-number">2.1.</span> <span class="toc-text">Tomcat目录介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA配置Tomcat"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA配置Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-2020-2创建JavaWeb项目"><span class="toc-number">2.3.</span> <span class="toc-text">IDEA 2020 .2创建JavaWeb项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat修改端口号"><span class="toc-number">2.4.</span> <span class="toc-text">Tomcat修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat添加管理员"><span class="toc-number">2.5.</span> <span class="toc-text">Tomcat添加管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">3.</span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet简介"><span class="toc-number">3.1.</span> <span class="toc-text">Servlet简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet程序"><span class="toc-number">3.2.</span> <span class="toc-text">Servlet程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet生命周期"><span class="toc-number">3.3.</span> <span class="toc-text">Servlet生命周期(*)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletRequest请求"><span class="toc-number">3.4.</span> <span class="toc-text">HttpServletRequest请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端HTML到后台服务器的多种请求方式"><span class="toc-number">3.5.</span> <span class="toc-text">前端HTML到后台服务器的多种请求方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletResponse-响应"><span class="toc-number">3.6.</span> <span class="toc-text">HttpServletResponse 响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转发与重定向"><span class="toc-number">3.7.</span> <span class="toc-text">转发与重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">3.8.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化参数"><span class="toc-number">3.9.</span> <span class="toc-text">初始化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注解配置Servlet信息"><span class="toc-number">3.10.</span> <span class="toc-text">注解配置Servlet信息</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-服务器"><span class="toc-number">2.</span> <span class="toc-text">Tomcat 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat目录介绍"><span class="toc-number">2.1.</span> <span class="toc-text">Tomcat目录介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA配置Tomcat"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA配置Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA-2020-2创建JavaWeb项目"><span class="toc-number">2.3.</span> <span class="toc-text">IDEA 2020 .2创建JavaWeb项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat修改端口号"><span class="toc-number">2.4.</span> <span class="toc-text">Tomcat修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat添加管理员"><span class="toc-number">2.5.</span> <span class="toc-text">Tomcat添加管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">3.</span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet简介"><span class="toc-number">3.1.</span> <span class="toc-text">Servlet简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet程序"><span class="toc-number">3.2.</span> <span class="toc-text">Servlet程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet生命周期"><span class="toc-number">3.3.</span> <span class="toc-text">Servlet生命周期(*)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletRequest请求"><span class="toc-number">3.4.</span> <span class="toc-text">HttpServletRequest请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端HTML到后台服务器的多种请求方式"><span class="toc-number">3.5.</span> <span class="toc-text">前端HTML到后台服务器的多种请求方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpServletResponse-响应"><span class="toc-number">3.6.</span> <span class="toc-text">HttpServletResponse 响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转发与重定向"><span class="toc-number">3.7.</span> <span class="toc-text">转发与重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">3.8.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化参数"><span class="toc-number">3.9.</span> <span class="toc-text">初始化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注解配置Servlet信息"><span class="toc-number">3.10.</span> <span class="toc-text">注解配置Servlet信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#会话跟踪技术"><span class="toc-number">4.</span> <span class="toc-text">会话跟踪技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-number">4.1.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-1"><span class="toc-number">4.2.</span> <span class="toc-text">Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie和Session的区别"><span class="toc-number">4.3.</span> <span class="toc-text">Cookie和Session的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filter"><span class="toc-number">5.</span> <span class="toc-text">Filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Listener"><span class="toc-number">6.</span> <span class="toc-text">Listener</span></a></li></ol>
                     </div>
                 </span>
             </div>
