@@ -16,7 +16,7 @@
 <meta property="og:description" content="概述先简单讲讲Java常问的题，再详述一些接口实战。 Java基础面试题Java跨平台性原因Java的跨平台原理主要是通过Java虚拟机（JVM）实现的。Java源码(.java文件) —-编译—-&gt; 通用的Java字节码（.class文件） —-JVM翻译—-&gt;平台相关的机器码 JDK和JRE的区别 JRE：JVM + 基础类库(Lang&amp;Util、IO、Reflection">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-04T12:25:42.000Z">
-<meta property="article:modified_time" content="2020-11-04T13:08:27.521Z">
+<meta property="article:modified_time" content="2020-11-04T15:53:20.672Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -173,7 +173,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">213字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -182,7 +182,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -193,7 +193,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>先简单讲讲Java常问的题，再详述一些接口实战。</p>
-<h2 id="Java基础面试题"><a href="#Java基础面试题" class="headerlink" title="Java基础面试题"></a>Java基础面试题</h2><h3 id="Java跨平台性原因"><a href="#Java跨平台性原因" class="headerlink" title="Java跨平台性原因"></a>Java跨平台性原因</h3><p>Java的跨平台原理主要是通过Java虚拟机（JVM）实现的。<br>Java源码(.java文件) —-编译—-&gt; 通用的Java字节码（.class文件） —-JVM翻译—-&gt;平台相关的机器码</p>
+<h2 id="Java基础面试题"><a href="#Java基础面试题" class="headerlink" title="Java基础面试题"></a>Java基础面试题</h2><h3 id="Java跨平台性原因"><a href="#Java跨平台性原因" class="headerlink" title="Java跨平台性原因"></a><a href="https://weidongz.github.io/2020/09/11/Java%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/">Java跨平台性原因</a></h3><p>Java的跨平台原理主要是通过Java虚拟机（JVM）实现的。<br>Java源码(.java文件) —-编译—-&gt; 通用的Java字节码（.class文件） —-JVM翻译—-&gt;平台相关的机器码</p>
 <h3 id="JDK和JRE的区别"><a href="#JDK和JRE的区别" class="headerlink" title="JDK和JRE的区别"></a>JDK和JRE的区别</h3><ul>
 <li>JRE：JVM + <strong>基础类库</strong>(Lang&amp;Util、IO、Reflection、Collections、Math、Concurrency、Logging) + <strong>整合类库</strong>（JDBC、JNDI、RMI）+ <strong>用户界面工具箱</strong>（AWT、Swing、Java 2D）+ <strong>开发技术</strong>（Deployment、Java Web Start、Java Plug-in）</li>
 <li>JDK：JRE + 工具程序与API（编译器javac、运行时解释器java、打包工具jar、文档化工具javadoc、反汇编器javap）</li>
@@ -203,7 +203,30 @@
 <li>校验代码： 由字节码校验器(byte code verifier)完成 </li>
 <li>执行代码： 由运行时解释器(runtime interpreter)完成 </li>
 </ol>
-
+<h3 id="Java三大特性"><a href="#Java三大特性" class="headerlink" title="Java三大特性"></a><a href="https://weidongz.github.io/2020/09/11/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9F%A5%E8%AF%86/">Java三大特性</a></h3><ol>
+<li>封装：将⼀个对象的属性私有化，同时提供⼀些可以被外界访问的属性的⽅法。</li>
+<li>继承：继承是使⽤父类作基础建⽴子类， 子类可拓展父类增加新的属性或新的方法，实现代码复用</li>
+<li>多态：多态指同一个对象的相同方法在不同情形具有不同表现形式，实现方式是子类重写父类方法，父类引用指向子类对象，</li>
+</ol>
+<h3 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a><a href="https://www.runoob.com/java/java-override-overload.html" target="_blank" rel="noopener">重载与重写</a></h3><p>重载(overload)：在同一个类中，方法名称相同, 参数<strong>类型</strong>或参数<strong>个数</strong>不同, 可以完成方法的重载 。方法的重载<strong>与返回值无关</strong>!  最常用的是构造器的重载，重载不是多态性的一种体现！</p>
+<p>重写(override)：子类对父类的允许访问的方法的实现过程进行重新编写。子父类之间的方法名、参数列表、返回值均一致，子类能够根据需要实现父类的方法。子类方法访问权限不得低于父类的。子类不能抛出新的检查异常或者比 父类被重写方法申明更加宽泛的异常。</p>
+<h3 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a><a href="https://www.runoob.com/w3cnote/java-abstract-interface-different.html" target="_blank" rel="noopener">接口和抽象类的区别</a></h3><ol>
+<li>抽象类可以提供成员方法的实现细节，抽象方法不能是private，而接口中只能存在public abstract 方法，Java 8可定义default方法体 使接⼝⽅法有默认实现， jdk9 的接⼝被允许定义私有⽅法和私有静态方法；</li>
+<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final 常量变量类型的；</li>
+<li>抽象类可以有静态代码块和静态方法，接口中不能含有静态代码块，JDK8 后接⼝可定义静态方法；</li>
+<li>一个类继承于一个抽象类，则子类必须实现父类的抽象方法。一个非抽象类遵循了某个接口，就必须实现该接口中的所有方法，抽象类可不实现该接口中的抽象方法。</li>
+<li>抽象类只能单继承，接口可多实现。</li>
+<li>抽象类和接口均不能实例化，接口的实现类或抽象类的子类都只有实现了接口或抽象类中的方法后才能实例化。但接口可使用匿名内部类，然后“new”一个对象。</li>
+</ol>
+<h3 id="List和Set与Map相关"><a href="#List和Set与Map相关" class="headerlink" title="List和Set与Map相关"></a><a href="https://weidongz.github.io/2020/09/16/Java%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">List和Set与Map相关</a></h3><blockquote>
+<p>Q: ArrayList、LinkedList、Vector<br>A:<br>ArrayList底层数据结构是对象数组，查找快，增删慢，线程不安全；<br>LinkedList链表，查找慢、增删快，线程不安全；<br>Vector数组，查找快，增删慢，线程安全，效率低</p>
+<p>Q: HashSet、LinkedHashSet、TreeSet<br>A:<br>HashSet底层数据结构是HashMap，元素不重复，是根据对象的hashCode 来确定元素在集合中的存储位置，因此具有良好的存取和查找性能。<br>LinkedHashSet内部使用的是LinkHashMap，遍历序和插入序是一致的。<br>TreeSet，底层是红黑树结构，按字典序有序。</p>
+<p>Q: HashMap、LinkedHashMap、Hashtable、ConcurrentHashMap、TreeMap<br>A:<br>HashMap底层对象数组+链表(or对象数组+红黑树)，无序存放，线程不安全<br>LinkedHashMap通过双向链表+HashMap实现，存储顺序有序（遍历序和插入序是一致的），线程不安全<br>Hashtable：线程安全，但不如ConcurrentHashMap<br>ConcurrentHashMap：分段锁，并发性能高<br>TreeMap：字典序有序，需实现Comparator</p>
+</blockquote>
+<h3 id="介绍反射机制"><a href="#介绍反射机制" class="headerlink" title="介绍反射机制"></a><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1264799402020448" target="_blank" rel="noopener">介绍反射机制</a></h3><p>在运行状态动态获取信息以及动态调用对象方法的功能 ，具体来说就是在程序运行过程中，获取任意一个类的结构 ,得到任意方法和 任意属性，进行创建对象 , 动态调用方法  。</p>
+<p>功能：1. 运行时判断任意对象所属的类； 2. 运行时构造任意类的对象； 3. 运行时判断任意类所有变量和方法； 4. 运行时调用任意对象的方法。</p>
+<p>JVM在第一次读取到一种<code>class</code>数据类型时，将其加载进内存。每加载一种<code>class</code>，JVM就为其创建一个<code>Class</code>类型的实例，并关联起来。每加载一种<code>class</code>，JVM就为其创建一个<code>Class</code>类型的实例，在<code>Class</code>实例中保存了该<code>class</code>的所有信息。通过<code>Class</code>实例获取<code>class</code>信息的方法。</p>
+<h2 id="Java框架面试题"><a href="#Java框架面试题" class="headerlink" title="Java框架面试题"></a>Java框架面试题</h2>
       
 
       
@@ -336,7 +359,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java基础面试题"><span class="toc-number">2.</span> <span class="toc-text">Java基础面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java跨平台性原因"><span class="toc-number">2.1.</span> <span class="toc-text">Java跨平台性原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK和JRE的区别"><span class="toc-number">2.2.</span> <span class="toc-text">JDK和JRE的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JRE功能"><span class="toc-number">2.3.</span> <span class="toc-text">JRE功能</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java基础面试题"><span class="toc-number">2.</span> <span class="toc-text">Java基础面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java跨平台性原因"><span class="toc-number">2.1.</span> <span class="toc-text">Java跨平台性原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK和JRE的区别"><span class="toc-number">2.2.</span> <span class="toc-text">JDK和JRE的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JRE功能"><span class="toc-number">2.3.</span> <span class="toc-text">JRE功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java三大特性"><span class="toc-number">2.4.</span> <span class="toc-text">Java三大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重载与重写"><span class="toc-number">2.5.</span> <span class="toc-text">重载与重写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口和抽象类的区别"><span class="toc-number">2.6.</span> <span class="toc-text">接口和抽象类的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List和Set与Map相关"><span class="toc-number">2.7.</span> <span class="toc-text">List和Set与Map相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍反射机制"><span class="toc-number">2.8.</span> <span class="toc-text">介绍反射机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java框架面试题"><span class="toc-number">3.</span> <span class="toc-text">Java框架面试题</span></a></li></ol>
                     </div>
                 </span>
             </div>
