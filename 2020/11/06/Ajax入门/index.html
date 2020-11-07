@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weidongz.github.io">
-  <title>Archives | 冬咚咚东</title>
+  <title>AJAX入门 | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无趣之人欲行有趣之事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="冬咚咚东">
-<meta property="og:url" content="https://weidongz.github.io/archives/index.html">
+  <meta name="description" content="AJAX简介AJAX &#x3D; Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。 AJAX 是一种用于创建快速动态网页的技术。 Web的运作原理：一次HTTP请求对应一个页面。AJAX 留在当前页面中，同时用JavaScript发出新的HTTP请求，接收到数据后，再用JavaScript更新页面。 通过在后台与服务器进行少量数据交换，AJAX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX入门">
+<meta property="og:url" content="https://weidongz.github.io/2020/11/06/Ajax%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="无趣之人欲行有趣之事">
+<meta property="og:description" content="AJAX简介AJAX &#x3D; Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。 AJAX 是一种用于创建快速动态网页的技术。 Web的运作原理：一次HTTP请求对应一个页面。AJAX 留在当前页面中，同时用JavaScript发出新的HTTP请求，接收到数据后，再用JavaScript更新页面。 通过在后台与服务器进行少量数据交换，AJAX">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20150716193059952">
+<meta property="og:image" content="https://img-blog.csdn.net/20150716193857795">
+<meta property="og:image" content="https://img-blog.csdn.net/20150716193904120">
+<meta property="og:image" content="https://img-blog.csdn.net/20150716193102944">
+<meta property="article:published_time" content="2020-11-06T09:29:05.000Z">
+<meta property="article:modified_time" content="2020-11-07T06:41:48.808Z">
 <meta property="article:author" content="Weidong">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20150716193059952">
   
     <link rel="alternative" href="/atom.xml" title="冬咚咚东" type="application/atom+xml">
   
@@ -140,36 +148,149 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Ajax入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      AJAX入门
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/06/Ajax%E5%85%A5%E9%97%A8/" class="archive-article-date">
+
+        
+        <a href="/2020/11/06/Ajax%E5%85%A5%E9%97%A8/" class="archive-article-date">
   	<time datetime="2020-11-06T09:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/06/Ajax%E5%85%A5%E9%97%A8/">AJAX入门</a>
-    </h1>
-  
+        
 
-        <div class="article-info info-on-right">
-          
+        <!-- 添加文章访问量 -->
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.8k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="AJAX简介"><a href="#AJAX简介" class="headerlink" title="AJAX简介"></a>AJAX简介</h2><p>AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>Web的运作原理：一次HTTP请求对应一个页面。<br>AJAX 留在当前页面中，同时用JavaScript发出新的HTTP请求，接收到数据后，再用JavaScript更新页面。</p>
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>AJAX技术组合：</p>
+<blockquote>
+<p>1.使用CSS和XHTML来表示。<br>2.使用DOM模型来交互和动态显示。<br>3.使用XMLHttpRequest来和服务器进行异步通信。<br>4.使用JavaScript来绑定和调用。 </p>
+</blockquote>
+<p>AJAX 步骤:</p>
+<blockquote>
+<ol>
+<li>创建 XMLHttpRequest 实例</li>
+<li>发出 HTTP 请求</li>
+<li>接收服务器传回的数据</li>
+<li>更新网页数据</li>
+</ol>
+</blockquote>
+<p><a href="https://www.w3school.com.cn/ajax/index.asp" target="_blank" rel="noopener">W3school AJAX教程</a>  </p>
+<p><a href="https://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">阮一峰的网络日志AJAX</a></p>
+<a id="more"></a>
+
+<h2 id="AJAX原理"><a href="#AJAX原理" class="headerlink" title="AJAX原理"></a>AJAX原理</h2><p>Ajax的工作原理相当于在用户和服务器之间加了—个中间层(AJAX引擎)，使用户操作与服务器响应异步化。并不是所有的用户请求都提交给服务器。像—些数据验证和数据处理等都交给Ajax引擎自己来做,，只有确定需要从服务器读取新数据时再由Ajax引擎代为向服务器提交请求。</p>
+<p><img src="https://img-blog.csdn.net/20150716193059952" alt="传统的Web应用模型与AJAX应用模型"></p>
+<p>浏览器是一次请求响应一次的同步阻塞处理，AJAX可实现异步处理</p>
+<p><img src="https://img-blog.csdn.net/20150716193857795" alt="浏览器的同步处理"></p>
+<p><img src="https://img-blog.csdn.net/20150716193904120" alt="AJAX异步交互"></p>
+<p><img src="https://img-blog.csdn.net/20150716193102944" alt="多用户异步处理"></p>
+<h2 id="XMLHTTPRequest常用属性"><a href="#XMLHTTPRequest常用属性" class="headerlink" title="XMLHTTPRequest常用属性"></a>XMLHTTPRequest常用属性</h2><h3 id="XMLHttpRequest-readyState"><a href="#XMLHttpRequest-readyState" class="headerlink" title="XMLHttpRequest.readyState"></a>XMLHttpRequest.readyState</h3><p><code>XMLHttpRequest.readyState</code>属性只读。返回一个整数，表示实例对象的当前状态。</p>
+<blockquote>
+<ul>
+<li>0，请求未初始化，表示 XMLHttpRequest 实例已经生成，但是实例的<code>open()</code>方法还没有被调用。</li>
+<li>1，请求已提出，表示<code>open()</code>方法已经调用，但是实例的<code>send()</code>方法还没有调用，仍然可以使用实例的<code>setRequestHeader()</code>方法，设定 HTTP 请求的头信息。</li>
+<li>2，请求已发送，表示实例的<code>send()</code>方法已经调用，并且服务器返回的头信息和状态码已经收到。</li>
+<li>3，请求处理中，表示正在接收服务器传来的数据体（body 部分）。这时，如果实例的<code>responseType</code>属性等于<code>text</code>或者空字符串，<code>responseText</code>属性就会包含已经收到的部分信息，但服务器未完成响应</li>
+<li>4，请求已完成，表示服务器返回的数据已经完全接收，或者本次接收已经失败。</li>
+</ul>
+</blockquote>
+<p>通信过程中，每当实例对象发生状态变化，它的<code>readyState</code>属性的值就会改变。这个值每一次变化，都会触发<code>readyStateChange</code>事件。</p>
+<h3 id="XMLHttpRequest-onreadystatechange"><a href="#XMLHttpRequest-onreadystatechange" class="headerlink" title="XMLHttpRequest.onreadystatechange"></a>XMLHttpRequest.onreadystatechange</h3><p><code>XMLHttpRequest.onreadystatechange</code>属性指向一个监听函数。<code>readystatechange</code>事件发生时（实例的<code>readyState</code>属性变化），就会执行<code>onreadystatechange</code>属性。</p>
+<p>如果使用实例的<code>abort()</code>方法，终止 XMLHttpRequest 请求，也会造成<code>readyState</code>属性变化，导致调用<code>XMLHttpRequest.onreadystatechange</code>属性。</p>
+<h3 id="XMLHttpRequest-responseText"><a href="#XMLHttpRequest-responseText" class="headerlink" title="XMLHttpRequest.responseText"></a>XMLHttpRequest.responseText</h3><p><code>XMLHttpRequest.responseText</code>属性返回从服务器接收到的字符串，该属性为只读。只有 HTTP 请求完成接收以后，该属性才会包含完整的数据。</p>
+<p><a href="https://javascript.ruanyifeng.com/bom/ajax.html#toc11" target="_blank" rel="noopener">更多属性</a>诸如</p>
+<blockquote>
+<p>XMLHttpRequest.response<br>XMLHttpRequest.responseType<br>XMLHttpRequest.responseXML<br>XMLHttpRequest.responseURL<br>XMLHttpRequest.status，XMLHttpRequest.statusText<br>XMLHttpRequest.timeout，XMLHttpRequestEventTarget.ontimeout<br>事件监听属性<br>XMLHttpRequest.withCredentials<br>XMLHttpRequest.upload</p>
+</blockquote>
+<h2 id="AJAX-编程步骤"><a href="#AJAX-编程步骤" class="headerlink" title="AJAX 编程步骤"></a>AJAX 编程步骤</h2><h3 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步：创建XMLHttpRequest对象</span></span><br><span class="line"><span class="keyword">var</span> xmlHttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">	xmlHttp = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//非IE</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject) &#123;</span><br><span class="line">	xmlHttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>)<span class="comment">//IE</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置请求方式"><a href="#设置请求方式" class="headerlink" title="设置请求方式"></a>设置请求方式</h3><p>在WEB开发中，请求有两种形式，一个是get，一个是post<br>GET 更简单也更快，并且在大部分情况下都能用。<br>POST 比 GET 更稳定也更可靠 , GET无法使用缓存文件（更新服务器上的文件或数据库） 向服务器发送大量数据（POST 没有数据量限制） 发送包含未知字符的用户输入</p>
+<p>XMLHttpRequest对象的open()方法就是来设置请求方式的。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第二步：设置和服务器端交互的相应参数，向路径http://localhost:8080/JsLearning3/getAjax准备发送数据</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">"http://localhost:8080/JsLearning3/getAjax"</span>;</span><br><span class="line">xmlHttp.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>void open(<br>   string method, //表示 HTTP 动词方法，比如GET、POST、PUT、DELETE、HEAD等。<br>   string url, //表示请求发送目标 URL。<br>   optional boolean async, // 布尔值，表示请求是否为异步，默认为true。如果设为false，则send()方法只有等到收到服务器返回了结果，才会进行下一步操作。不应该设为false<br>   optional string user, //表示用于认证的用户名，默认为空字符串。该参数可选。<br>   optional string password //表示用于认证的密码，默认为空字符串。该参数可选。<br>);</p>
+</blockquote>
+<h3 id="调用回调函数"><a href="#调用回调函数" class="headerlink" title="调用回调函数"></a>调用回调函数</h3><p>所谓回调函数，就是请求在后台处理完(xmlHttp.readyState == 4)，判断后台返回的信息是否正确(xmlHttp.status == 200)，再返回到前台所实现的功能。 </p>
+<p>回调函数要实现的功能就是接收后台处理后反馈给前台的数据，然后将这个数据显示到指定的div上。因为从后台返回的数据可能是错误的，所以在回调函数中首先要判断后台返回的信息是否正确，如果正确才可以继续执行。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第三步：注册回调函数</span></span><br><span class="line">xmlHttp.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xmlHttp.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (xmlHttp.status == <span class="number">200</span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">			obj.innerHTML = xmlHttp.responseText;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			alert(<span class="string">"AJAX服务器返回错误！"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第四步：设置发送请求的内容和发送报送。然后发送请求</span></span><br><span class="line"><span class="keyword">var</span> uname= <span class="built_in">document</span>.getElementsByName(<span class="string">"userName"</span>)[<span class="number">0</span>].value;</span><br><span class="line"><span class="keyword">var</span> upass= <span class="built_in">document</span>.getElementsByName(<span class="string">"userPass"</span>)[<span class="number">0</span>].value ;</span><br><span class="line"><span class="keyword">var</span> params = <span class="string">"userName="</span> + uname+ <span class="string">"&amp;userPass="</span> +upass+ <span class="string">"&amp;time="</span> + <span class="built_in">Math</span>.random();</span><br><span class="line"><span class="comment">// 使用 setRequestHeader() 来添加 HTTP 头, 增加time随机参数，防止读取缓存</span></span><br><span class="line">xmlHttp.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>);</span><br><span class="line"><span class="comment">// 向请求添加 HTTP 头，POST如果有数据一定加加！！！！</span></span><br><span class="line">xmlHttp.send(params);</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现Servlet"><a href="#实现Servlet" class="headerlink" title="实现Servlet"></a>实现Servlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(value = <span class="string">"/textname"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.接收参数</span></span><br><span class="line">        String uname = req.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">        resp.setContentType(<span class="string">"text/html; charset=utf-8"</span>);</span><br><span class="line">        PrintWriter pw = resp.getWriter();</span><br><span class="line">        System.out.println(uname);</span><br><span class="line">        <span class="comment">//2.验证，当AJAX处理完请求后，使用Print Writer输出流返回数据，默认发回原页面</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"admin"</span>.equals(uname)||<span class="string">"weidong"</span>.equals(uname))&#123;</span><br><span class="line">            <span class="comment">//用户名存在</span></span><br><span class="line">            pw.print(<span class="string">"用户名已存在"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//用户名可用</span></span><br><span class="line">            pw.write(<span class="string">"用户名可用"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="jQuery实现AJAX-编程步骤（更简单）"><a href="#jQuery实现AJAX-编程步骤（更简单）" class="headerlink" title="jQuery实现AJAX 编程步骤（更简单）"></a>jQuery实现AJAX 编程步骤（更简单）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">"#username"</span>).blur(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript">                <span class="comment">//1.接收参数</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> uname = $(<span class="keyword">this</span>).val();</span></span><br><span class="line"><span class="actionscript">                <span class="comment">//2.使用ajax发送请求</span></span></span><br><span class="line"><span class="javascript">                $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">                    url:<span class="string">"/textname"</span>,</span></span><br><span class="line"><span class="actionscript">                    data:<span class="string">"uname="</span>+uname,</span></span><br><span class="line"><span class="actionscript">                    type:<span class="string">"post"</span>,</span></span><br><span class="line"><span class="actionscript">                    dataType:<span class="string">"text"</span>,</span></span><br><span class="line"><span class="actionscript">                    success:<span class="function"><span class="keyword">function</span> <span class="params">(result)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">                        $(<span class="string">"#rs"</span>).html(result);<span class="comment">//接收服务器的返回内容</span></span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line"><span class="actionscript">                <span class="comment">//或者使用get/post请求</span></span></span><br><span class="line"><span class="actionscript">                <span class="comment">// $.post("/textname","uname="+uname, function(result) &#123;</span></span></span><br><span class="line"><span class="actionscript">                <span class="comment">//     $("#rs").html(result);//接收服务器的返回内容</span></span></span><br><span class="line"><span class="actionscript">                <span class="comment">// &#125;);</span></span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"uname"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"rs"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中最关键的便是<code>$.ajax(url, type, dataType,sucess:function(data){})</code>，<a href="https://www.w3school.com.cn/jquery/ajax_ajax.asp" target="_blank" rel="noopener">参数含义链接</a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -181,372 +302,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/11/06/Ajax%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/04/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E6%8E%A5%E5%8F%A3%E5%BA%94%E7%94%A8%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2020-11-04T12:25:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/04/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E6%8E%A5%E5%8F%A3%E5%BA%94%E7%94%A8%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java面试题之接口应用篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/04/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B%E6%8E%A5%E5%8F%A3%E5%BA%94%E7%94%A8%E7%AF%87/">Java面试题之接口应用篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX简介"><span class="toc-number">1.</span> <span class="toc-text">AJAX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX原理"><span class="toc-number">2.</span> <span class="toc-text">AJAX原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XMLHTTPRequest常用属性"><span class="toc-number">3.</span> <span class="toc-text">XMLHTTPRequest常用属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XMLHttpRequest-readyState"><span class="toc-number">3.1.</span> <span class="toc-text">XMLHttpRequest.readyState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XMLHttpRequest-onreadystatechange"><span class="toc-number">3.2.</span> <span class="toc-text">XMLHttpRequest.onreadystatechange</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XMLHttpRequest-responseText"><span class="toc-number">3.3.</span> <span class="toc-text">XMLHttpRequest.responseText</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-编程步骤"><span class="toc-number">4.</span> <span class="toc-text">AJAX 编程步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建XMLHttpRequest对象"><span class="toc-number">4.1.</span> <span class="toc-text">创建XMLHttpRequest对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置请求方式"><span class="toc-number">4.2.</span> <span class="toc-text">设置请求方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用回调函数"><span class="toc-number">4.3.</span> <span class="toc-text">调用回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送请求"><span class="toc-number">4.4.</span> <span class="toc-text">发送请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现Servlet"><span class="toc-number">4.5.</span> <span class="toc-text">实现Servlet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery实现AJAX-编程步骤（更简单）"><span class="toc-number">5.</span> <span class="toc-text">jQuery实现AJAX 编程步骤（更简单）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">6.</span> <span class="toc-text"></span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/03/JSP%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-11-03T05:27:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/03/JSP%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">JSP快速入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-10-31T02:17:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/31/Tomcat-Servlet%E5%85%A5%E9%97%A8/">Tomcat搭建与Servlet入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/28/HTTP%E5%B8%B8%E8%80%83%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-10-28T14:04:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/28/HTTP%E5%B8%B8%E8%80%83%E7%9F%A5%E8%AF%86/">面试题之HTTP常考知识</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/24/JDBC%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-10-24T15:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/24/JDBC%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">JDBC之操作指南</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" class="archive-article-date">
-  	<time datetime="2020-10-22T16:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/">数据库之进阶技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/19/jQuery%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-10-19T13:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/19/jQuery%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">jQuery基础入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/16/JavaScript%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/" class="archive-article-date">
-  	<time datetime="2020-10-16T14:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/16/JavaScript%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/">JavaScript语言简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BMySQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-10-03T15:23:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BMySQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">数据库之MySQL基础操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -581,8 +448,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
