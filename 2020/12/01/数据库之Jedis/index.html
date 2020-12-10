@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weidongz.github.io">
-  <title>JSON使用范例 | 冬咚咚东</title>
+  <title>数据库之Jedis &amp; MongoDB | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。 JSON只允许使用UTF-8编码，不存在编码问题；JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；浏览器内置JSON支持，可用JavaScript直接处理。">
+  <meta name="description" content="Jedis简介Jedis 是 Redis 官方首选的 Java 客户端开发包。 MongoDB 将数据存储为一个文档，数据结构由键值(key&#x3D;&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 Redis文档 菜鸟教程Redis入门之Jedis JedisAPI文档 菜鸟教程MongoDB入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON使用范例">
-<meta property="og:url" content="https://weidongz.github.io/2020/09/28/JSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/index.html">
+<meta property="og:title" content="数据库之Jedis &amp; MongoDB">
+<meta property="og:url" content="https://weidongz.github.io/2020/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BJedis/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="概述JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。 JSON只允许使用UTF-8编码，不存在编码问题；JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；浏览器内置JSON支持，可用JavaScript直接处理。">
+<meta property="og:description" content="Jedis简介Jedis 是 Redis 官方首选的 Java 客户端开发包。 MongoDB 将数据存储为一个文档，数据结构由键值(key&#x3D;&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。 Redis文档 菜鸟教程Redis入门之Jedis JedisAPI文档 菜鸟教程MongoDB入门">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-28T10:16:39.000Z">
-<meta property="article:modified_time" content="2020-09-28T16:20:10.177Z">
+<meta property="article:published_time" content="2020-12-01T07:34:24.000Z">
+<meta property="article:modified_time" content="2020-12-10T07:40:48.876Z">
 <meta property="article:author" content="Weidong">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="冬咚咚东" type="application/atom+xml">
@@ -143,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSON使用范例" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库之Jedis" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSON使用范例
+      数据库之Jedis &amp; MongoDB
     </h1>
   
 
         
-        <a href="/2020/09/28/JSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" class="archive-article-date">
-  	<time datetime="2020-09-28T10:16:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
+        <a href="/2020/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BJedis/" class="archive-article-date">
+  	<time datetime="2020-12-01T07:34:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-01</time>
 </a>
         
 
@@ -173,7 +173,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">476字</span>
+        <span class="post-count">736字</span>
       </span>
     </span>
 
@@ -182,7 +182,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -192,27 +192,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。</p>
-<p>JSON只允许使用UTF-8编码，不存在编码问题；<br>JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；<br>浏览器内置JSON支持，可用JavaScript直接处理。</p>
+        <h2 id="Jedis简介"><a href="#Jedis简介" class="headerlink" title="Jedis简介"></a>Jedis简介</h2><p><em>Jedis</em> 是 Redis 官方首选的 Java 客户端开发包。</p>
+<p>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+<p><a href="http://doc.redisfans.com/index.html" target="_blank" rel="noopener">Redis文档</a></p>
+<p><a href="https://www.runoob.com/redis/redis-java.html" target="_blank" rel="noopener">菜鸟教程Redis入门之Jedis</a></p>
+<p><a href="https://tool.oschina.net/uploads/apidocs/jedis-2.1.0/redis/clients/jedis/Jedis.html" target="_blank" rel="noopener">JedisAPI文档</a></p>
+<p><a href="https://www.runoob.com/mongodb/mongodb-java.html" target="_blank" rel="noopener">菜鸟教程MongoDB入门</a></p>
 <a id="more"></a>
 
-<h2 id="JSON格式"><a href="#JSON格式" class="headerlink" title="JSON格式"></a>JSON格式</h2><p>数据类型</p>
-<ul>
-<li>键值对：<code>{&quot;key&quot;: value}</code></li>
-<li>数组：<code>[1, 2, 3]</code></li>
-<li>字符串：<code>&quot;abc&quot;</code></li>
-<li>数值（整数和浮点数）：<code>12.34</code></li>
-<li>布尔值：<code>true</code>或<code>false</code></li>
-<li>空值：<code>null</code></li>
-</ul>
-<p>格式范例</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Java核心技术"</span>,</span><br><span class="line">    <span class="attr">"author"</span>: &#123;</span><br><span class="line">        <span class="attr">"firstName"</span>: <span class="string">"Abc"</span>,</span><br><span class="line">        <span class="attr">"lastName"</span>: <span class="string">"Xyz"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"isbn"</span>: <span class="string">"1234567"</span>,</span><br><span class="line">    <span class="attr">"tags"</span>: [<span class="string">"Java"</span>, <span class="string">"Network"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Jedis部署流程"><a href="#Jedis部署流程" class="headerlink" title="Jedis部署流程"></a>Jedis部署流程</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><p>Maven项目导入Jedis依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="JSON解析"><a href="#JSON解析" class="headerlink" title="JSON解析"></a>JSON解析</h2><p>常用第三方库<a href="https://github.com/google/gson" target="_blank" rel="noopener"><code>Gson</code></a>或<a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener"><code>Fastjson</code></a>解析Json对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 下载并导入Gson包</span></span><br><span class="line"><span class="comment">//2. 解析 京东万象 垃圾类别分类API</span></span><br><span class="line"><span class="comment">//API请求获取JSON格式的字符串</span></span><br><span class="line">RequestModel model = <span class="keyword">new</span> RequestModel();</span><br><span class="line">model.setGwUrl(<span class="string">"https://way.jd.com/JDAI/garbageTextSearch"</span>);</span><br><span class="line">model.setAppkey(<span class="string">"208de6e63aa41c89518e3a17c85b33b9"</span>);</span><br><span class="line">String cityId = <span class="string">"310000"</span>;</span><br><span class="line">String rubbish = <span class="string">"汽水瓶"</span>;</span><br><span class="line">String bodyStr = <span class="string">"&#123;  \"cityId\":"</span> +cityId+<span class="string">",  \"text\":\""</span> + rubbish+<span class="string">"\" &#125;"</span>;</span><br><span class="line">model.setBodyStr(bodyStr);</span><br><span class="line">Map queryMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">model.setQueryParams(queryMap);</span><br><span class="line">WxApiCall call = <span class="keyword">new</span> WxApiCall();</span><br><span class="line">call.setModel(model);</span><br><span class="line">String jsonStr = call.request();</span><br><span class="line"><span class="comment">//System.out.println(jsonStr);</span></span><br><span class="line"><span class="comment">//方法1. Gson解析json</span></span><br><span class="line">HashMap res =  <span class="keyword">new</span> Gson().fromJson(jsonStr,HashMap<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">System.out.println(res.get(<span class="string">"msg"</span>));</span><br><span class="line">LinkedTreeMap rres = (LinkedTreeMap) res.get(<span class="string">"result"</span>);</span><br><span class="line">System.out.println(rres.get(<span class="string">"remain"</span>).getClass());<span class="comment">//获取类型</span></span><br><span class="line">LinkedTreeMap rrres = (LinkedTreeMap) rres.get(<span class="string">"result"</span>);</span><br><span class="line">List resList = (List) rrres.get(<span class="string">"garbage_info"</span>);</span><br><span class="line">LinkedTreeMap garbage_info = (LinkedTreeMap) resList.get(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"垃圾类别:"</span>+ garbage_info.get(<span class="string">"cate_name"</span>) + <span class="string">",额外声明"</span>+ garbage_info.get(<span class="string">"ps"</span>));</span><br><span class="line"><span class="comment">//方法2. FastJson解析</span></span><br><span class="line">HashMap res1 =  JSON.parseObject(jsonStr,HashMap<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">JSONObject res2 = (JSONObject) res1.get(<span class="string">"result"</span>);</span><br><span class="line">JSONObject res3 = (JSONObject) res2.get(<span class="string">"result"</span>);</span><br><span class="line">List resList1 = (List) res3.get(<span class="string">"garbage_info"</span>);</span><br><span class="line">JSONObject garbage_info1 = (JSONObject) resList1.get(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"垃圾类别:"</span>+ garbage_info1.get(<span class="string">"cate_name"</span>) + <span class="string">",额外声明"</span>+ garbage_info1.get(<span class="string">"ps"</span>));</span><br></pre></td></tr></table></figure>
+<p>或者添加jar包 <a href="https://static.runoob.com/download/jedis-2.9.0.jar" target="_blank" rel="noopener">jedis-2.9.0.jar</a> 并导入</p>
+<h3 id="单实例连接Redis服务器"><a href="#单实例连接Redis服务器" class="headerlink" title="单实例连接Redis服务器"></a>单实例连接Redis服务器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建立链接（Redis服务器IP地址，端口号）</span></span><br><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"192.168.68.146"</span>, <span class="number">6379</span>);</span><br><span class="line"><span class="comment">//使用Redis链接 </span></span><br><span class="line">jedis.set(<span class="string">"javaStr"</span>,<span class="string">"strVal"</span>);</span><br><span class="line">System.out.println(jedis.get(<span class="string">"javaStr"</span>));</span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure>
 
-<h2 id="JSON创建"><a href="#JSON创建" class="headerlink" title="JSON创建"></a>JSON创建</h2><p>由Java对象创建Json范例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义类， JSON结构里面有&#123; &#125;就定义一个public类，看到[ ]就定义一个List即可，最后只剩下String、int等基本类型直接定义就好</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String info;</span><br><span class="line">    <span class="comment">//Constructor &amp; getter &amp; setter</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book b = <span class="keyword">new</span> Book(<span class="string">"book1"</span>, <span class="string">"apple"</span>);</span><br><span class="line"><span class="comment">//String json = new Gson().toJson(b);//定义在类中生成空串？类外生成合法Json字符串</span></span><br><span class="line">String json=JSON.toJSONString(b);</span><br><span class="line">System.out.println(json);</span><br></pre></td></tr></table></figure>
+<h3 id="Jedis连接池连接Redis服务器"><a href="#Jedis连接池连接Redis服务器" class="headerlink" title="Jedis连接池连接Redis服务器"></a>Jedis连接池连接Redis服务器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.获取连接池配置对象,设置配置项</span></span><br><span class="line">JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</span><br><span class="line"><span class="comment">// 1.1 设置最大的连接数和最大的空闲数</span></span><br><span class="line">config.setMaxTotal(<span class="number">30</span>);</span><br><span class="line">config.setMaxIdle(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 2.获取连接池</span></span><br><span class="line">JedisPool jedisPool = <span class="keyword">new</span> JedisPool(config, <span class="string">"192.168.197.129"</span>, <span class="number">6379</span>);</span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">// 3.设置数据</span></span><br><span class="line">    jedis.set(<span class="string">"name"</span>, <span class="string">"张三"</span>);</span><br><span class="line">    String name = jedis.get(<span class="string">"name"</span>);</span><br><span class="line">    System.out.println(<span class="string">"name="</span> + name);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 4.虚拟机关闭的时候，释放资源</span></span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) &#123;</span><br><span class="line">    	jedis.close();</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (jedisPool != <span class="keyword">null</span>) &#123;</span><br><span class="line">    	jedisPool.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Jedis连接Redis集群"><a href="#Jedis连接Redis集群" class="headerlink" title="Jedis连接Redis集群"></a>Jedis连接Redis集群</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 创建一连接，JedisCluster对象,在系统中是单例存在</span></span><br><span class="line">Set&lt;HostAndPort&gt; nodes = <span class="keyword">new</span> HashSet&lt;HostAndPort&gt;();</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7001</span>));</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7002</span>));</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7003</span>));</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7004</span>));</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7005</span>));</span><br><span class="line">nodes.add(<span class="keyword">new</span> HostAndPort(<span class="string">"192.168.197.132"</span>, <span class="number">7006</span>));</span><br><span class="line">JedisCluster cluster = <span class="keyword">new</span> JedisCluster(nodes);</span><br><span class="line"><span class="comment">// 2. 执行JedisCluster对象中的方法，方法和redis指令一一对应。</span></span><br><span class="line">cluster.set(<span class="string">"test1"</span>, <span class="string">"test111"</span>);</span><br><span class="line">String result = cluster.get(<span class="string">"test1"</span>);</span><br><span class="line">System.out.println(result);</span><br><span class="line"><span class="comment">//存储List数据到列表中</span></span><br><span class="line">cluster.lpush(<span class="string">"site-list"</span>, <span class="string">"java"</span>);</span><br><span class="line">cluster.lpush(<span class="string">"site-list"</span>, <span class="string">"c"</span>);</span><br><span class="line">cluster.lpush(<span class="string">"site-list"</span>, <span class="string">"mysql"</span>);</span><br><span class="line"><span class="comment">// 获取存储的数据并输出</span></span><br><span class="line">List&lt;String&gt; list = cluster.lrange(<span class="string">"site-list"</span>, <span class="number">0</span> ,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">	System.out.println(<span class="string">"列表项为: "</span>+list.get(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3. 程序结束时需要关闭JedisCluster对象</span></span><br><span class="line">cluster.close();</span><br><span class="line">System.out.println(<span class="string">"集群测试成功！"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="MongoDB-JDBC-部署流程"><a href="#MongoDB-JDBC-部署流程" class="headerlink" title="MongoDB JDBC 部署流程"></a>MongoDB JDBC 部署流程</h2><h3 id="导入Maven依赖"><a href="#导入Maven依赖" class="headerlink" title="导入Maven依赖"></a>导入Maven依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mongodb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mongo-java-driver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="连接MongoDB服务器"><a href="#连接MongoDB服务器" class="headerlink" title="连接MongoDB服务器"></a>连接MongoDB服务器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 创建MongoDB连接，连接数据库</span></span><br><span class="line">MongoClient mongoClient = <span class="keyword">new</span> MongoClient(<span class="string">"192.168.68.146"</span>, <span class="number">27017</span>);</span><br><span class="line"><span class="comment">//2. 得到数据源</span></span><br><span class="line">MongoDatabase mydb = mongoClient.getDatabase(<span class="string">"mydb"</span>);</span><br><span class="line">System.out.println(mydb);</span><br><span class="line"><span class="comment">//3. 创建并得到集合</span></span><br><span class="line"><span class="comment">//        mydb.createCollection("users");</span></span><br><span class="line">MongoCollection&lt;Document&gt; users = mydb.getCollection(<span class="string">"users"</span>);</span><br><span class="line"><span class="comment">//4.  增删改查</span></span><br><span class="line">Document document = <span class="keyword">new</span> Document(<span class="string">"_id"</span>, <span class="number">1202</span>);<span class="comment">//随便起的值</span></span><br><span class="line">document.append(<span class="string">"name"</span>,<span class="string">"hha"</span>);</span><br><span class="line">document.append(<span class="string">"age"</span>,<span class="number">23</span>);</span><br><span class="line">users.insertOne(document);</span><br><span class="line">System.out.println(<span class="string">"新增成功"</span>);</span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">users.updateOne(Filters.eq(<span class="string">"name"</span>,<span class="string">"hha"</span>),<span class="keyword">new</span> Document(<span class="string">"$set"</span>,<span class="keyword">new</span> Document(<span class="string">"name"</span>,<span class="string">"xixi"</span>))); </span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">users.deleteOne(<span class="keyword">new</span> Document(<span class="string">"name"</span>,<span class="string">"hha"</span>));</span><br><span class="line"><span class="comment">//查询</span></span><br><span class="line">FindIterable&lt;Document&gt; documents = users.find();</span><br><span class="line">MongoCursor&lt;Document&gt; iterator = documents.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext())&#123;System.out.println(iterator.next());&#125;</span><br><span class="line"><span class="comment">//5. 释放资源</span></span><br><span class="line">mongoClient.close();</span><br></pre></td></tr></table></figure>
 
 
       
@@ -248,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -304,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/09/28/JSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BJedis/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +318,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/30/%E6%9E%9A%E4%B8%BE%E3%80%81%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/07/Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpring%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java之枚举、注解与反射
+          Java框架之Spring入门
         
       </div>
     </a>
   
   
-    <a href="/2020/09/28/XML%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XML使用范例</div>
+    <a href="/2020/11/06/%E5%89%8D%E7%AB%AF%E4%B9%8BAjax%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端之AJAX入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -356,7 +356,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON格式"><span class="toc-number">2.</span> <span class="toc-text">JSON格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON解析"><span class="toc-number">3.</span> <span class="toc-text">JSON解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON创建"><span class="toc-number">4.</span> <span class="toc-text">JSON创建</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jedis简介"><span class="toc-number">1.</span> <span class="toc-text">Jedis简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jedis部署流程"><span class="toc-number">2.</span> <span class="toc-text">Jedis部署流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入依赖"><span class="toc-number">2.1.</span> <span class="toc-text">导入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单实例连接Redis服务器"><span class="toc-number">2.2.</span> <span class="toc-text">单实例连接Redis服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jedis连接池连接Redis服务器"><span class="toc-number">2.3.</span> <span class="toc-text">Jedis连接池连接Redis服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jedis连接Redis集群"><span class="toc-number">2.4.</span> <span class="toc-text">Jedis连接Redis集群</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MongoDB-JDBC-部署流程"><span class="toc-number">3.</span> <span class="toc-text">MongoDB JDBC 部署流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入Maven依赖"><span class="toc-number">3.1.</span> <span class="toc-text">导入Maven依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接MongoDB服务器"><span class="toc-number">3.2.</span> <span class="toc-text">连接MongoDB服务器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

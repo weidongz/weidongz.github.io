@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weidongz.github.io">
-  <title>JDBC之操作指南 | 冬咚咚东</title>
+  <title>Java之枚举、注解与反射 | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JDBC 简介JDBC：Java DataBase Connectivity，Java程序访问数据库的标准接口。 使用 Java 程序访问数据库时，一套数据库访问代码，却可以访问不同厂商的数据库，因厂商实现 JDBC 统一标准接口。Java 代码并不是直接通过 TCP 连接去访问数据库，而是通过 JDBC接口  (Java标准库自带JDBC ) 来访问，而JDBC接口则通过 JDBC驱动  (数据">
+  <meta name="description" content="概述本篇讲述枚举的定义与常用方法；注解的类别和用法；反射的概念和用法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDBC之操作指南">
-<meta property="og:url" content="https://weidongz.github.io/2020/10/24/JDBC%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="Java之枚举、注解与反射">
+<meta property="og:url" content="https://weidongz.github.io/2020/09/30/Java%E4%B9%8B%E6%9E%9A%E4%B8%BE%E3%80%81%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="JDBC 简介JDBC：Java DataBase Connectivity，Java程序访问数据库的标准接口。 使用 Java 程序访问数据库时，一套数据库访问代码，却可以访问不同厂商的数据库，因厂商实现 JDBC 统一标准接口。Java 代码并不是直接通过 TCP 连接去访问数据库，而是通过 JDBC接口  (Java标准库自带JDBC ) 来访问，而JDBC接口则通过 JDBC驱动  (数据">
+<meta property="og:description" content="概述本篇讲述枚举的定义与常用方法；注解的类别和用法；反射的概念和用法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-24T15:45:42.000Z">
-<meta property="article:modified_time" content="2020-11-03T05:37:02.993Z">
+<meta property="article:published_time" content="2020-09-30T12:48:22.000Z">
+<meta property="article:modified_time" content="2020-11-04T16:01:00.788Z">
 <meta property="article:author" content="Weidong">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="冬咚咚东" type="application/atom+xml">
@@ -144,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JDBC之操作指南" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java之枚举、注解与反射" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JDBC之操作指南
+      Java之枚举、注解与反射
     </h1>
   
 
         
-        <a href="/2020/10/24/JDBC%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-10-24T15:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
+        <a href="/2020/09/30/Java%E4%B9%8B%E6%9E%9A%E4%B8%BE%E3%80%81%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" class="archive-article-date">
+  	<time datetime="2020-09-30T12:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
 </a>
         
 
@@ -174,7 +173,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.4k字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
 
@@ -183,7 +182,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -193,166 +192,126 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JDBC-简介"><a href="#JDBC-简介" class="headerlink" title="JDBC 简介"></a>JDBC 简介</h2><p>JDBC：Java DataBase Connectivity，Java程序访问数据库的标准接口。</p>
-<p>使用 Java 程序访问数据库时，一套数据库访问代码，却可以访问不同厂商的数据库，因厂商实现 JDBC 统一标准接口。<br>Java 代码并不是直接通过 TCP 连接去访问数据库，<br>而是通过 <strong>JDBC接口</strong>  (Java标准库自带JDBC ) 来访问，<br>而JDBC接口则通过 <strong>JDBC驱动</strong>  (数据库厂商提供驱动) 来实现真正对数据库的访问。</p>
-<p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1255943820274272" target="_blank" rel="noopener">JDBC 廖雪峰Java教程</a></p>
-<p><a href="https://www.runoob.com/w3cnote/jdbc-use-guide.html" target="_blank" rel="noopener">JDBC 使用说明</a></p>
-<p><a href="https://www.runoob.com/java/java-mysql-connect.html" target="_blank" rel="noopener">Java MySQL 连接</a></p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲述枚举的定义与常用方法；<br>注解的类别和用法；<br>反射的概念和用法。</p>
 <a id="more"></a>
 
-<h2 id="JDBC-使用步骤"><a href="#JDBC-使用步骤" class="headerlink" title="JDBC 使用步骤"></a>JDBC 使用步骤</h2><ol>
-<li><p>找到MySQL安装文件夹的mysql-connector-java-8.0.19.jar</p>
-</li>
-<li><p>将jar文件导入到项目中</p>
-<blockquote>
-<p>项目中新建<code>lib</code>文件夹 –&gt; 将<code>mysql-connector-java-8.0.19.jar</code>放入<code>lib</code> –&gt; <code>File</code>菜单选中<code>Project Structure</code>–&gt; <code>Library</code>选项+号下拉选Java –&gt; Library Root界面 选择项目文件夹 –&gt; Detected Roots选择OK –&gt; 添加刚刚放入的<code>mysql-connector-java-8.0.19.jar</code> 并Apply–&gt; 在<code>Project Structure</code>选择<code>Modules</code>选项 –&gt; <code>Dependencies</code>选项卡中将Library处新建的添加进去</p>
-</blockquote>
-</li>
-<li><p>加载数据库驱动 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MySQL版本6.0以上</span></span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line"><span class="comment">//版本6以下，关键看jar包是否有对应路径</span></span><br><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过驱动管理器, 获取JDBC连接对象. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(<span class="string">"数据库连接地址"</span>,<span class="string">"帐号"</span>,<span class="string">"密码"</span>);</span><br><span class="line"><span class="comment">//数据库连接地址格式: 主协议:子协议://ip地址:端口号/数据库名称?key1=value1&amp;key2=value2</span></span><br><span class="line"><span class="comment">//mysql的连接地址: jdbc:mysql://localhost:3306/java35?characterEncoding=utf8&amp;serverTimezone=UTC</span></span><br><span class="line"><span class="comment">//帐号:root</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>法一(不推荐)：创建SQL执行对象 (SQL执行环境) Statement：<br><code>Statement state = conn.createStatement();</code></p>
-<p>法二(更安全)：创建预编译执行环境PreparedStatement，比Statement更佳，可防SQL注入</p>
-<p><code>PreparedStatement state = conn.prepareStatement(sql);</code></p>
-</li>
-<li><p>通过SQL执行对象 ,执行SQL语句<br><code>state.execute(String sql语句);</code> //Statement对象的执行方式，SQL语句在此编写<br><code>state.execute();</code>  //PreparedStatement对象的执行方式，SQL语句在创建对象时预编译</p>
-</li>
-<li><p>释放资源 (!最重要的)<br><code>state.close(); conn.close();</code></p>
-</li>
-</ol>
-<h2 id="JDBC-API详解"><a href="#JDBC-API详解" class="headerlink" title="JDBC API详解"></a>JDBC API详解</h2><p>SQL执行对象<code>Statement</code>或 预编译SQL语句对象<code>PreparedStatement</code>的常用方法</p>
-<ol>
-<li>执行给定的SQL语句，返回值是true即SQL查询语句（第一个结果是ResultSet对象)，返回值false即 其它语句<br><code>boolean execute(String sql)</code></li>
-<li>执行 DML 语句 (INSERT ， UPDATE ，或 DELETE) 和 DDL语句( CREATE, ALTER, DROP) ,<br>返回值是该语句对数据库表格的 影响行数，DQL语句返回值大于0代表执行成功，DDL语句返回值是0。<br><code>int executeUpdate(String sql)</code></li>
-<li>执行DQL语句 (SELECT)，该语句返回单个 ResultSet对象。<br><code>ResultSet executeQuery(String sql)</code></li>
-</ol>
-<p>结果集对象<code>ResultSet</code>常用方法</p>
-<ul>
-<li>游标移动方法<code>next()</code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">     <span class="keyword">long</span> id = resultSet.getLong(<span class="number">1</span>); <span class="comment">// 获取字段（列）时，索引从1开始</span></span><br><span class="line">     Date birth = resultSet.getDate(<span class="number">2</span>); <span class="comment">//java.sql.Date类型字段</span></span><br><span class="line">     String name = resultSet.getString(<span class="number">3</span>);<span class="comment">//varchar类型</span></span><br><span class="line">     Int grade = resultSet.getInt(<span class="string">"grade"</span>); <span class="comment">//根据列名获取值</span></span><br><span class="line"> &#125;</span><br><span class="line">resultSet。close();</span><br></pre></td></tr></table></figure>
+<h2 id="枚举enum"><a href="#枚举enum" class="headerlink" title="枚举enum"></a>枚举enum</h2><p>用途：定义有限数量的一组<strong>常量</strong>；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Weekday &#123;<span class="comment">//编译器编译为final class Weekday extends Enum &#123; … &#125;</span></span><br><span class="line">    SUN, MON, TUE, WED, THU, FRI, SAT;<span class="comment">//public static final，唯一实例，常量大写</span></span><br><span class="line">    <span class="comment">//默认构造方法是私有的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Java数据类型与SQL数据类型的<strong>转换</strong></p>
 <table>
 <thead>
 <tr>
-<th align="left">SQL数据类型</th>
-<th align="left">Java数据类型</th>
+<th><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1260473188087424" target="_blank" rel="noopener">常用方法</a></th>
+<th>功能</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">BIT, BOOL</td>
-<td align="left">boolean</td>
+<td>int compareTo(E o);</td>
+<td>比较枚举实例的顺序</td>
 </tr>
 <tr>
-<td align="left">INTEGER</td>
-<td align="left">int</td>
+<td>boolean equals(Object other);</td>
+<td>与==作用一致，比较实例地址。</td>
 </tr>
 <tr>
-<td align="left">BIGINT</td>
-<td align="left">long</td>
+<td>String name();</td>
+<td>返回枚举常量名</td>
 </tr>
 <tr>
-<td align="left">REAL</td>
-<td align="left">float</td>
+<td>String toString();</td>
+<td>可复写，默认返回枚举名</td>
 </tr>
 <tr>
-<td align="left">FLOAT, DOUBLE</td>
-<td align="left">double</td>
-</tr>
-<tr>
-<td align="left">CHAR, VARCHAR</td>
-<td align="left">String</td>
-</tr>
-<tr>
-<td align="left">DECIMAL</td>
-<td align="left">BigDecimal</td>
-</tr>
-<tr>
-<td align="left">DATE</td>
-<td align="left">java.sql.Date, LocalDate</td>
-</tr>
-<tr>
-<td align="left">TIME</td>
-<td align="left">java.sql.Time, LocalTime</td>
+<td>int ordinal();</td>
+<td>返回该常量序数</td>
 </tr>
 </tbody></table>
-<h2 id="DAO-数据访问接口"><a href="#DAO-数据访问接口" class="headerlink" title="DAO 数据访问接口"></a>DAO 数据访问接口</h2><p>和数据源进行交互 ，把底层的数据访问操作和上层的商务逻辑分开 。</p>
-<p>一个典型的<a href="https://www.runoob.com/design-pattern/data-access-object-pattern.html" target="_blank" rel="noopener">DAO实现案例</a>有下列几个步骤：</p>
+<p>优势：</p>
 <ol>
-<li><p>数据传递对象 (有些时候叫做Bean对象)：案例的Student对象；</p>
-</li>
-<li><p>一个DAO接口：案例的StudentDao接口；</p>
-</li>
-<li><p>至少一个实现DAO接口的具体类：案例的StudentDaoImpl实现类；</p>
-</li>
-<li><p>一个DAO工厂类；案例无，此处给出</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentDaoFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StudentDao <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> StudentDaoImpl();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用生成StudentDao接口实现对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StudentDao dao = StudentDaoFactory.get();</span><br><span class="line"><span class="comment">//操作代码</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>编译器会自动检查出类型错误，不同类型的枚举不能互相比较或者赋值；</li>
+<li>定义出<code>enum</code>的实例，而无法通过<code>new</code>操作符创建<code>enum</code>的实例，每个实例都是引用类型的唯一实例；</li>
+<li>switch中使用枚举时，见名知意，直接使用常量名，不用携带类名。 </li>
+<li>枚举类实现接口，每个枚举对象实现接口的抽象方法可不一致。</li>
 </ol>
-<h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><p>概念：通过特殊符号注入SQL参数中逃避验证或获得授权</p>
-<p>解决措施：将SQL语句与参数分离,将参数作为SQL的特殊部分进行预处理。 即针对所有字符串参数进行转义。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PreparedStatement预编译的SQL执行环境 完全避免SQL注入的问题，其原理：</span></span><br><span class="line"><span class="comment">//1. 将未拼接参数的SQL语句, 作为SQL指令, 先传递给数据库 进行编译.</span></span><br><span class="line"><span class="comment">//2. 再将参数传递给数据库, 参数不会再作为指令执行, 只会被当作文本存在.</span></span><br><span class="line">String sql = <span class="string">"SELECT * FROM user WHERE login=? AND pass=?"</span>; <span class="comment">//使用?作为参数占位符</span></span><br><span class="line">PreparedStatement state = conn.prepareStatement(sql); <span class="comment">//使用PreparedStatement替代Statement</span></span><br><span class="line">state.setString(<span class="number">1</span>,<span class="string">"zhangsan"</span>); <span class="comment">//参数索引从1开始</span></span><br><span class="line">state.setObject(<span class="number">2</span>, <span class="number">1</span><span class="string">' or '</span><span class="number">1</span><span class="string">'='</span><span class="number">1</span>) <span class="comment">//SQL注入语句失效</span></span><br><span class="line">ResultSet rs = state.executeQuery();<span class="comment">//执行查询</span></span><br><span class="line"><span class="comment">//state.executeUpdate();</span></span><br><span class="line"><span class="comment">//state.execute();</span></span><br><span class="line">rs.close();</span><br><span class="line">state.close();</span><br></pre></td></tr></table></figure>
+<h2 id="注解Annotation"><a href="#注解Annotation" class="headerlink" title="注解Annotation"></a>注解Annotation</h2><p><strong>定义</strong>：类、方法、变量、参数、包前的特殊注释，可通过反射机制获取注解内容，能被编译器打包进class文件。</p>
+<p><strong>用途</strong>：编译格式检查、反射解析、帮助文档生成、跟踪代码依赖</p>
+<p><strong>类别</strong>：编译器使用的注解、工具处理class文件使用的注解、程序运行期可读取的注解</p>
+<table>
+<thead>
+<tr>
+<th>内置注解</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Override</td>
+<td>重写</td>
+</tr>
+<tr>
+<td>@Deprecated</td>
+<td>废弃</td>
+</tr>
+<tr>
+<td>@FunctionalInterface</td>
+<td>函数式接口</td>
+</tr>
+<tr>
+<td>@SuppressWarnings</td>
+<td>抑制警告信息，<a href="https://www.cnblogs.com/fsjohnhuang/p/4040785.html" target="_blank" rel="noopener">参数及用法</a></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>元注解（注解的注解）</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Retention</td>
+<td>策略属性, 使用RetentionPolicy枚举类定义注解<strong>生命周期</strong><br />SOURCE 仅存在于编译器处理期间<br />CLASS(默认) 存储于类对应的 .class 文件<br />RUNTIME 存储于 class 文件中，且可由JVM读入</td>
+</tr>
+<tr>
+<td>@Documented</td>
+<td>标记这些注解是否包含在用户文档中 javadoc</td>
+</tr>
+<tr>
+<td>@Target</td>
+<td>1-n个类型属性, 使用ElementType枚举类定义注解<strong>应用位置</strong><br />TYPE 类、接口（包括注释类型）或枚举声明<br />METHOD 方法声明<br />FIELD 字段声明</td>
+</tr>
+<tr>
+<td>@Inherited</td>
+<td>子类继承父类定义的<code>Annotation</code> ，参照<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265102803921888" target="_blank" rel="noopener">该链接</a></td>
+</tr>
+</tbody></table>
+<p>自定义注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Target</span>([ElementType.TYPE,ElementType.METHOD])</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation1 &#123;</span><br><span class="line">    <span class="comment">//注解中的每一个方法，实际是声明的注解配置参数</span></span><br><span class="line">    <span class="comment">//如果只有一个参数成员，一般参数名为value</span></span><br><span class="line">    <span class="comment">//注解元素必须要有值，我们定义注解元素时，经常使用空字符串、0作为默认值</span></span><br><span class="line">	参数类型 参数名() <span class="keyword">default</span> 默认值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><code>PreparedStatement</code>比<code>Statement</code>更安全, 请忘却<code>Statement</code></p>
-<h2 id="JDBC-事务"><a href="#JDBC-事务" class="headerlink" title="JDBC 事务"></a>JDBC 事务</h2><p>通过 <code>Connection</code> 对象开启, 回滚 ,提交. 只针对当前连接对象生效. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开启事务，默认情况JDBC的事务自动提交AutoCommit是true</span></span><br><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line"><span class="comment">//多条JDBC execute语句</span></span><br><span class="line"><span class="comment">//回滚可以写在catch块  //conn.rollback();</span></span><br><span class="line"><span class="comment">//提交事务</span></span><br><span class="line">conn.commit();</span><br><span class="line">conn.setAutoCommit(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
 
-<h2 id="JDBC-批处理"><a href="#JDBC-批处理" class="headerlink" title="JDBC 批处理"></a>JDBC 批处理</h2><p>JDBC代码中，把同一个SQL但参数不同的若干次操作合并为一个<code>batch</code>执行。通过一个循环来执行每个<code>PreparedStatement</code>虽然可行，但是性能很低。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Statement对象</span></span><br><span class="line">Statement state = conn.createStatement();</span><br><span class="line">state.addBatch(String sql);<span class="comment">//将一条SQL语句, 加入到批处理中.</span></span><br><span class="line">state.executeBatch();<span class="comment">//批处理执行大量SQL语句</span></span><br><span class="line">state.clearBatch();<span class="comment">//清空批处理</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PreparedStatement对象</span></span><br><span class="line">String sql = <span class="string">"SELECT * FROM user WHERE login=? AND pass=?"</span>;</span><br><span class="line">PreparedStatement state = conn.prepareStatement(sql);</span><br><span class="line">state.setString(<span class="number">1</span>,<span class="string">"admin"</span>);</span><br><span class="line">state.setString(<span class="number">2</span>,<span class="string">"12345"</span>);</span><br><span class="line"><span class="comment">//一条填充完毕参数的SQL加入批处理</span></span><br><span class="line">state.addBatch();</span><br><span class="line"><span class="comment">//全部语句添加完成后执行批处理</span></span><br><span class="line">state.executeBatch();</span><br><span class="line">state.clearBatch();</span><br></pre></td></tr></table></figure>
-
-<h2 id="DBCP-连接池"><a href="#DBCP-连接池" class="headerlink" title="DBCP 连接池"></a>DBCP 连接池</h2><blockquote>
-<p> 连接池（Connection Pool）复用已经创建好的连接。</p>
-<p>在执行JDBC的增删改查的操作时，如果每一次操作都来一次打开连接，操作，关闭连接，那么创建和销毁JDBC连接的开销就太大了。为了避免频繁地创建和销毁JDBC连接，连接池应运而生。</p>
-<p>使用连接Connection时, 可以不用再创建连接 ，而是直接从连接池中获取连接.<br>当连接池中存在空闲连接时, 会将空闲连接给到程序使用.<br>当连接池中不存在空闲连接时, 且连接池未满时 , 则创建连接提供给程序使用 ,并在程序使用完毕后,缓存连接.<br>当连接池中不存在空闲连接时, 且连接池已满时 , 则排队等候空闲连接的出现. </p>
-<p>使用连接池中的连接对象操作数据库时, 操作完毕依然需要释放连接(调用close()).<br>连接池中的连接在设计时, 使用了动态代理设计模式+装饰者设计模式 . 我们调用它的close方法, 代理没有关闭这个连接, 而是将连接重新放入了池中. </p>
-</blockquote>
-<p><strong>DBCP</strong> 使用步骤：</p>
+<h2 id="反射Reflection"><a href="#反射Reflection" class="headerlink" title="反射Reflection"></a>反射Reflection</h2><p><strong>反射概念</strong> ：在运行状态动态获取信息以及动态调用对象方法的功能 ，具体来说就是获取任意一个类的结构 , 创建对象 , 得到方法，执行方法 , 属性 。<br><code>Java.lang.reflect</code>包实现反射机制</p>
+<p><strong>类加载器</strong> (Java Classloader) ：JRE一部分，负责动态加载Java类到Java虚拟机的内存空间中。</p>
 <ol>
-<li><p>下载相关的 <a href="http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi" target="_blank" rel="noopener">dbcp.jar文件</a> 和 <a href="">pool.jar</a> 并引入<br>由于版本是 Java8，故下载<a href="https://mirror.bit.edu.cn/apache//commons/dbcp/binaries/commons-dbcp2-2.8.0-bin.zip">commons-dbcp2-2.8.0-bin.zip</a><br><a href="https://mirrors.bfsu.edu.cn/apache//commons/pool/binaries/commons-pool2-2.9.0-bin.zip" target="_blank" rel="noopener">commons-pool2-2.9.0-bin.zip</a></p>
-</li>
-<li><p><code>src</code>文件夹新建一个<code>dbcp.properties</code>配置文件并配置如下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库连接地址</span></span><br><span class="line">url=jdbc:mysql://localhost:3306/kaikeba?characterEncoding=utf8&amp;serverTimezone=UTC</span><br><span class="line"><span class="comment">#数据库驱动类的全名</span></span><br><span class="line">driverClassName=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="comment">#数据库帐号</span></span><br><span class="line">username=root</span><br><span class="line"><span class="comment">#数据库密码</span></span><br><span class="line">password=87654321</span><br><span class="line"><span class="comment">#初始化连接池时,创建的连接数量</span></span><br><span class="line">initialSize=5</span><br><span class="line"><span class="comment">#连接池的最大连接容量</span></span><br><span class="line">maxActive=20</span><br><span class="line"><span class="comment">#空闲时允许保留的最大连接数量</span></span><br><span class="line">maxIdle=5</span><br><span class="line"><span class="comment">#空闲时允许保留的最小连接数量</span></span><br><span class="line">minIdle=5</span><br><span class="line"><span class="comment">#排队等候的超时时间(毫秒)</span></span><br><span class="line">maxWait=3000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将配置文件转换为<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265119084411136" target="_blank" rel="noopener">Properties对象</a> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Properties ppt = <span class="keyword">new</span> Properties();</span><br><span class="line"><span class="comment">//反射机制，Demo02是主类名</span></span><br><span class="line">InputStream is = Demo02.class.getClassLoader().getResourceAsStream("dbcp.properties");</span><br><span class="line">ppt.load(is);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>连接池的工厂类(BasicDataSourceFactory)：创建连接池的方法createDataSource()<br><code>DataSource ds = BasicDataSourceFactory.createDataSource(ppt);</code></p>
-</li>
-<li><p>从连接池DataSource 中 获取连接对象<br><code>Connection conn = ds.getConnection();</code></p>
-</li>
-<li><p>进行JDBC操作并关闭连接</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Statement state = conn.createStatement();</span><br><span class="line">state.execute(<span class="string">"insert into course values (05,'体育',06)"</span>);</span><br><span class="line">state.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>Bootstrap ClassLoader（引导启动类加载器）：<br>嵌在JVM内核中的加载器，该加载器是用C++语言写的，引导启动类加载器无法被应用程序直接使用。<br>主要负载加载JAVA_HOME/lib下的类库。</li>
+<li>Extension ClassLoader（扩展类加载器）：<br>父类加载器是Bootstrap ClassLoader, 用JAVA编写，是由sun.misc.Launcher$ExtClassLoader实现的。<br>主要加载JAVA_HOME/lib/ext目录中的类库。 </li>
+<li>App ClassLoader（应用类加载器）：<br>父类加载器为Extension ClassLoader ，<br>负责加载应用程序classpath目录下的所有jar和class文件。</li>
 </ol>
-<p><strong>Druid 连接池</strong>的使用步骤 </p>
-<ol>
-<li><p>下载 <a href="[https://mirrors.tuna.tsinghua.edu.cn/apache/druid/0.20.0/apache-druid-0.20.0-bin.tar.gz**](https://mirrors.tuna.tsinghua.edu.cn/apache/druid/0.20.0/apache-druid-0.20.0-bin.tar.gz)">druid.jar </a> 和 pool.jar并导入</p>
-</li>
-<li><p>配置文件<code>druid.properties</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库连接地址</span></span><br><span class="line">url=jdbc:mysql://localhost:3306/kaikeba?characterEncoding=utf8&amp;serverTimezone=UTC</span><br><span class="line">username=root</span><br><span class="line">password=87654321</span><br><span class="line"><span class="comment">#驱动类名。根据url自动识别，这一项可配可不配，如果不配置druid会根据url自动识别相应的driverClassName</span></span><br><span class="line">driverClassName=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="comment">#初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次 getConnection时</span></span><br><span class="line">initialSize=5</span><br><span class="line"><span class="comment">#最大连接池数量</span></span><br><span class="line">maxActive=10</span><br><span class="line"><span class="comment">#最小连接池数量</span></span><br><span class="line">minIdle=5</span><br><span class="line"><span class="comment">#获取连接时最大等待时间，单位毫秒。</span></span><br><span class="line">maxWait=3000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将配置文件转换为Properties对象 </p>
-</li>
-<li><p>通过连接池的工厂类(DruidDataSourceFactory)的创建连接池createDataSource()</p>
-</li>
-<li><p>从连接池中 获取连接对象 进行JDBC操作后关闭</p>
-</li>
-</ol>
-<p><strong>Druid 工具类</strong> 提高创建线程池效率 (自行编写)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidUtil</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DataSource data = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//静态代码块，当第一次创建时调用</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">    	InputStream is = DruidUtil.class.getClassLoader().getResourceAsStream("druid.properties");</span><br><span class="line">        Properties ppt = <span class="keyword">new</span> Properties();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ppt.load(is);</span><br><span class="line">            data = DruidDataSourceFactory.createDataSource(ppt);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        	e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/** 用于从DBCP连接池中 获取一个连接</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> DBCP连接池中的一个连接对象.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> data.getConnection();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**用于释放连接 , 执行环境 , 结果集 等资源*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn,Statement state,ResultSet result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(result != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                result.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">    	&#125; </span><br><span class="line">        <span class="keyword">if</span>(state != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">            	state.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            	e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">    	&#125; </span><br><span class="line">        <span class="keyword">if</span>(conn != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类通常是按需加载，即第一次使用该类时才加载。 双亲委派模型 避免有些类被重复加载 。<br>双亲委派模型：如果一个类加载器收到了一个类加载请求，把这个请求转交给父类加载器去完成。每一个层次的类加载器都是如此。因此所有的类加载请求都应该传递到最顶层的启动类加载器中，只有到父类加载器反馈自己无法完成这个加载请求（在它的搜索范围没有找到这个类）时，子类加载器才会尝试自己去加载。<br>类加载器加载资源文件 ，默认加载的是src路径下的文件，但是当项目存在resource root目录时，就变为了加载resource root下的文件了。 </p>
+<h3 id="Class类型"><a href="#Class类型" class="headerlink" title="Class类型"></a>Class类型</h3><p>每一个.java源码文件，经过编译后，得到.class字节码文件，其加载到内存后，都存在一个对应的Class类型的对象 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 包名.类名.class</span></span><br><span class="line">Class&lt;Book&gt; b = Book<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"><span class="comment">//2. Class 对象.getClass()</span></span><br><span class="line">Book book = <span class="keyword">new</span> Book();</span><br><span class="line">Class&lt;Book&gt; b2 = (Class&lt;Book&gt;) book.getClass();</span><br><span class="line"><span class="comment">//3. Class.forName(包名+类名)</span></span><br><span class="line">Class&lt;Book&gt; b3 = (Class&lt;Book&gt;) Class.forName(<span class="string">"com.kaikeba.learnjava.Book"</span>);</span><br><span class="line">System.out.println(b == b2 &amp;&amp; b==b3);</span><br></pre></td></tr></table></figure>
 
-<p>调用DruidUtil 新建连接Connection 和释放连接<br><code>Connection conn = DruidUtil.getConnection();</code><br><code>conn.close();</code></p>
+<h3 id="Class类型获取构造方法"><a href="#Class类型获取构造方法" class="headerlink" title="Class类型获取构造方法"></a>Class类型获取构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//无参构造方法</span></span><br><span class="line">Constructor cons1 = Book<span class="class">.<span class="keyword">class</span>.<span class="title">getConstructor</span>()</span>;</span><br><span class="line"><span class="comment">//有参构造方法</span></span><br><span class="line">Constructor cons2 = Book<span class="class">.<span class="keyword">class</span>.<span class="title">getConstructor</span>(<span class="title">String</span>.<span class="title">class</span>, <span class="title">int</span>.<span class="title">class</span>)</span>;</span><br><span class="line">cons2.newInstance(<span class="string">"苹果"</span>, <span class="number">20</span>);<span class="comment">//对象创建</span></span><br><span class="line"><span class="comment">//私有构造方法</span></span><br><span class="line">Constructor cons3 = Book<span class="class">.<span class="keyword">class</span>.<span class="title">getDeclaredConstructor</span>(<span class="title">String</span>.<span class="title">class</span>, <span class="title">String</span>.<span class="title">class</span>)</span>;</span><br><span class="line">cons3.setAccessible(<span class="keyword">true</span>);<span class="comment">//忽略访问权限检查</span></span><br><span class="line">cons3.newInstance(<span class="string">"Apple"</span>, <span class="string">"Sweet"</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Class类型获取方法"><a href="#Class类型获取方法" class="headerlink" title="Class类型获取方法"></a>Class类型获取方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object obj &#x3D; Book.class.getConstructor().newInstance();</span><br><span class="line">Method m1 &#x3D; Book.class.getMethod(&quot;setName&quot;, String.class); &#x2F;&#x2F;Class实例的方法可以获取Method实例</span><br><span class="line">System.out.println(m1.getParameterTypes()[0]);&#x2F;&#x2F;</span><br><span class="line">m1.invoke(obj, &quot;Apple&quot;); &#x2F;&#x2F;调用某个对象的方法</span><br></pre></td></tr></table></figure>
+
+<p>更多方法信息或调用实例参照<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1264803678201760" target="_blank" rel="noopener">该文</a></p>
+<h3 id="Class类型获取属性"><a href="#Class类型获取属性" class="headerlink" title="Class类型获取属性"></a>Class类型获取属性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field f = Book.class.getDeclaredField("price");</span><br><span class="line">f.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">f.set(obj,<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Class类型获取注解"><a href="#Class类型获取注解" class="headerlink" title="Class类型获取注解"></a>Class类型获取注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Annotation[] annotations01 = Class/Field/Method.getAnnotations();</span><br><span class="line"><span class="keyword">for</span> (Annotation annotation : annotations01) &#123;</span><br><span class="line">	System.out.println(annotation);</span><br><span class="line">&#125;</span><br><span class="line">Annotation annotations02 = Book<span class="class">.<span class="keyword">class</span>.<span class="title">getAnnotation</span>(<span class="title">Target</span>.<span class="title">class</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="内省Introspector"><a href="#内省Introspector" class="headerlink" title="内省Introspector"></a>内省Introspector</h2><p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1260474416351680" target="_blank" rel="noopener">JavaBean</a> :  符合命名规范的class，所有属性私有, 通过getter和setter来访问属性；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内省机制获取JavaBean的getter和setter方法</span></span><br><span class="line">BeanInfo beanInfo = Introspector.getBeanInfo(Book<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();</span><br><span class="line"><span class="keyword">for</span>(PropertyDescriptor pd:pds)&#123;</span><br><span class="line">    Method get = pd.getReadMethod();</span><br><span class="line">    Method set = pd.getWriteMethod();</span><br><span class="line">    System.out.println(pd.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -388,10 +347,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -447,7 +402,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/10/24/JDBC%E4%B9%8B%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/09/30/Java%E4%B9%8B%E6%9E%9A%E4%B8%BE%E3%80%81%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -461,18 +416,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/28/HTTP%E5%B8%B8%E8%80%83%E7%9F%A5%E8%AF%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8BMySQL%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          面试题之HTTP常考知识
+          数据库之MySQL基础操作
         
       </div>
     </a>
   
   
-    <a href="/2020/10/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据库之进阶技巧</div>
+    <a href="/2020/09/28/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B9%8BJSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前后端交互之JSON使用范例</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -499,7 +454,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC-简介"><span class="toc-number">1.</span> <span class="toc-text">JDBC 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC-使用步骤"><span class="toc-number">2.</span> <span class="toc-text">JDBC 使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC-API详解"><span class="toc-number">3.</span> <span class="toc-text">JDBC API详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO-数据访问接口"><span class="toc-number">4.</span> <span class="toc-text">DAO 数据访问接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-注入"><span class="toc-number">5.</span> <span class="toc-text">SQL 注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC-事务"><span class="toc-number">6.</span> <span class="toc-text">JDBC 事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC-批处理"><span class="toc-number">7.</span> <span class="toc-text">JDBC 批处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBCP-连接池"><span class="toc-number">8.</span> <span class="toc-text">DBCP 连接池</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举enum"><span class="toc-number">2.</span> <span class="toc-text">枚举enum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解Annotation"><span class="toc-number">3.</span> <span class="toc-text">注解Annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反射Reflection"><span class="toc-number">4.</span> <span class="toc-text">反射Reflection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类型"><span class="toc-number">4.1.</span> <span class="toc-text">Class类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类型获取构造方法"><span class="toc-number">4.2.</span> <span class="toc-text">Class类型获取构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类型获取方法"><span class="toc-number">4.3.</span> <span class="toc-text">Class类型获取方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类型获取属性"><span class="toc-number">4.4.</span> <span class="toc-text">Class类型获取属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类型获取注解"><span class="toc-number">4.5.</span> <span class="toc-text">Class类型获取注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内省Introspector"><span class="toc-number">5.</span> <span class="toc-text">内省Introspector</span></a></li></ol>
                     </div>
                 </span>
             </div>

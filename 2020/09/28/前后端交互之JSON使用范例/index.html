@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://weidongz.github.io">
-  <title>jQuery基础入门 | 冬咚咚东</title>
+  <title>前后端交互之JSON使用范例 | 冬咚咚东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery参考链接 jQuery官网: JavaScript libraryjQuery 教程jQuery速查表">
+  <meta name="description" content="概述JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。 JSON只允许使用UTF-8编码，不存在编码问题；JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；浏览器内置JSON支持，可用JavaScript直接处理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery基础入门">
-<meta property="og:url" content="https://weidongz.github.io/2020/10/19/jQuery%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="前后端交互之JSON使用范例">
+<meta property="og:url" content="https://weidongz.github.io/2020/09/28/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B9%8BJSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/index.html">
 <meta property="og:site_name" content="冬咚咚东">
-<meta property="og:description" content="jQuery参考链接 jQuery官网: JavaScript libraryjQuery 教程jQuery速查表">
+<meta property="og:description" content="概述JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。 JSON只允许使用UTF-8编码，不存在编码问题；JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；浏览器内置JSON支持，可用JavaScript直接处理。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-19T13:05:09.000Z">
-<meta property="article:modified_time" content="2020-10-19T13:20:31.598Z">
+<meta property="article:published_time" content="2020-09-28T10:16:39.000Z">
+<meta property="article:modified_time" content="2020-12-10T07:48:44.499Z">
 <meta property="article:author" content="Weidong">
+<meta property="article:tag" content="Java">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
   
@@ -143,20 +144,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jQuery基础入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前后端交互之JSON使用范例" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      jQuery基础入门
+      前后端交互之JSON使用范例
     </h1>
   
 
         
-        <a href="/2020/10/19/jQuery%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-10-19T13:05:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
+        <a href="/2020/09/28/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B9%8BJSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" class="archive-article-date">
+  	<time datetime="2020-09-28T10:16:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
 </a>
         
 
@@ -173,7 +174,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">556字</span>
+        <span class="post-count">476字</span>
       </span>
     </span>
 
@@ -192,18 +193,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="jQuery参考链接"><a href="#jQuery参考链接" class="headerlink" title="jQuery参考链接"></a>jQuery参考链接</h2><blockquote>
-<p><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery官网: JavaScript library</a><br><a href="https://www.runoob.com/jquery/jquery-tutorial.html" target="_blank" rel="noopener">jQuery 教程</a><br><a href="https://jquery.cuishifeng.cn/" target="_blank" rel="noopener">jQuery速查表</a></p>
-</blockquote>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JSON(JavaScript Object Notation)，JavaScript的对象格式，应用广泛。</p>
+<p>JSON只允许使用UTF-8编码，不存在编码问题；<br>JSON只允许使用双引号作为key，特殊字符用\转义，格式简单；<br>浏览器内置JSON支持，可用JavaScript直接处理。</p>
 <a id="more"></a>
 
-<h2 id="引用jQuery库"><a href="#引用jQuery库" class="headerlink" title="引用jQuery库"></a>引用jQuery库</h2><p>HTML头部引用百度CDN的jQuery库，或<a href="https://www.runoob.com/jquery/jquery-install.html" target="_blank" rel="noopener">安装源码等更多选择</a></p>
-<p>jQuery就是采用JavaScript编写的一套函数库，源码就是如下.js文件，因此开发速度快。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="JSON格式"><a href="#JSON格式" class="headerlink" title="JSON格式"></a>JSON格式</h2><p>数据类型</p>
+<ul>
+<li>键值对：<code>{&quot;key&quot;: value}</code></li>
+<li>数组：<code>[1, 2, 3]</code></li>
+<li>字符串：<code>&quot;abc&quot;</code></li>
+<li>数值（整数和浮点数）：<code>12.34</code></li>
+<li>布尔值：<code>true</code>或<code>false</code></li>
+<li>空值：<code>null</code></li>
+</ul>
+<p>格式范例</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Java核心技术"</span>,</span><br><span class="line">    <span class="attr">"author"</span>: &#123;</span><br><span class="line">        <span class="attr">"firstName"</span>: <span class="string">"Abc"</span>,</span><br><span class="line">        <span class="attr">"lastName"</span>: <span class="string">"Xyz"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"isbn"</span>: <span class="string">"1234567"</span>,</span><br><span class="line">    <span class="attr">"tags"</span>: [<span class="string">"Java"</span>, <span class="string">"Network"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="jQuery基本使用"><a href="#jQuery基本使用" class="headerlink" title="jQuery基本使用"></a>jQuery基本使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//入口函数</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//获取网页中所有li节点, 跟CSS选择器语法基本一致</span></span><br><span class="line">    <span class="keyword">var</span> list = $(<span class="string">"li"</span>); <span class="comment">//等同于documrnt.getElemntByTagName("li");</span></span><br><span class="line">    <span class="comment">//获取id是hid和class是cc的元素节点</span></span><br><span class="line">	$(<span class="string">"#hid, .cc"</span>).css(<span class="string">"color"</span>,<span class="string">"blue"</span>);</span><br><span class="line">	<span class="comment">//层级选择器</span></span><br><span class="line">    $(<span class="string">"ul li"</span>).css(<span class="string">"font"</span>,<span class="string">"32"</span>);<span class="comment">//获取ul中所有li元素子节点(包括后代)</span></span><br><span class="line">    $(<span class="string">"ul&gt;li"</span>);<span class="comment">//获取ul所有直接子节点，不包括后代</span></span><br><span class="line">    $(<span class="string">"ul+li"</span>);<span class="comment">//获取ul同级的第一个li兄弟节点</span></span><br><span class="line">    $(<span class="string">"ul~li"</span>);<span class="comment">//获取ul同级的的所有li兄弟节点</span></span><br><span class="line">    <span class="comment">//基础选择器:first(首个),:last(最后一个),:even(偶数个),:odd,::not(非),:eq(等于),:gt(大于)</span></span><br><span class="line">    $(<span class="string">"li:first"</span>)<span class="comment">//第一个li节点</span></span><br><span class="line">    <span class="comment">//属性选择器</span></span><br><span class="line">    $(<span class="string">"input[name^='p']"</span>);<span class="comment">//获取input中name属性是以p开头的元素标签</span></span><br><span class="line">    $(<span class="string">"input[name*=p]"</span>);<span class="comment">//获取input标签中name属性含有p的元素</span></span><br><span class="line">    $(<span class="string">"input"</span>).attr(<span class="string">"name"</span>,<span class="string">"张三"</span>);<span class="comment">//修改input的name属性为张三</span></span><br><span class="line">    <span class="comment">//子元素选择器：获取每组ul的第三个li节点</span></span><br><span class="line">    $(<span class="string">"ul li:nth-child(3)"</span>);</span><br><span class="line">    <span class="comment">//节点遍历</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//添加属性，激活CSS类</span></span><br><span class="line">    <span class="comment">//CSS样式ul.uu li.active&#123;background-color: #f0c;&#125;</span></span><br><span class="line">    $(<span class="string">"ul.uu li"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//$(this)将事件转换成jQuery对象</span></span><br><span class="line">        $(<span class="keyword">this</span>).toggleClass(<span class="string">"active"</span>); <span class="comment">//切换class类属性</span></span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">//获取id=inner的div层的位置</span></span><br><span class="line">    $(<span class="string">"#inner"</span>).offset().left;<span class="comment">//带有 top 和 left 属性的对象</span></span><br><span class="line">    <span class="comment">//获取inner相对于outer的偏移位置</span></span><br><span class="line">    $(<span class="string">"#inner"</span>).attr(<span class="string">"position"</span>)=absolute; $(<span class="string">"#outer"</span>).attr(<span class="string">"postion"</span>,<span class="string">"relative"</span>);</span><br><span class="line">    $(<span class="string">"#inner"</span>).position().left;</span><br><span class="line">    <span class="comment">//内部插入：在ul元素class是uu的位置增加节点append(),prepend()</span></span><br><span class="line">    $(<span class="string">"ul.uu"</span>).append(<span class="string">"&lt;li&gt;"</span>+<span class="string">"zhangsan"</span>+<span class="string">"&lt;/li&gt;"</span>);</span><br><span class="line">    <span class="comment">//外部插入：before(),after()</span></span><br><span class="line">    $(<span class="string">"li"</span>).before(<span class="string">"&lt;li&gt;"</span>+$(<span class="string">"input[name='tname']"</span>).val()+<span class="string">"&lt;/li&gt;"</span>);</span><br><span class="line">    <span class="comment">//删除节点remove(),清空clear()</span></span><br><span class="line">    $(<span class="string">"li.active"</span>).remove();</span><br><span class="line">    <span class="comment">//显示与隐藏切换</span></span><br><span class="line">    $(<span class="string">"img"</span>).stop().toggle(<span class="string">"slow"</span>);</span><br><span class="line">    <span class="comment">//鼠标悬停</span></span><br><span class="line">    $(<span class="string">"img"</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//鼠标移入事件代码</span></span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//鼠标移出事件代码</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="JSON解析"><a href="#JSON解析" class="headerlink" title="JSON解析"></a>JSON解析</h2><p>常用第三方库<a href="https://github.com/google/gson" target="_blank" rel="noopener"><code>Gson</code></a>或<a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener"><code>Fastjson</code></a>解析Json对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 下载并导入Gson包</span></span><br><span class="line"><span class="comment">//2. 解析 京东万象 垃圾类别分类API</span></span><br><span class="line"><span class="comment">//API请求获取JSON格式的字符串</span></span><br><span class="line">RequestModel model = <span class="keyword">new</span> RequestModel();</span><br><span class="line">model.setGwUrl(<span class="string">"https://way.jd.com/JDAI/garbageTextSearch"</span>);</span><br><span class="line">model.setAppkey(<span class="string">"208de6e63aa41c89518e3a17c85b33b9"</span>);</span><br><span class="line">String cityId = <span class="string">"310000"</span>;</span><br><span class="line">String rubbish = <span class="string">"汽水瓶"</span>;</span><br><span class="line">String bodyStr = <span class="string">"&#123;  \"cityId\":"</span> +cityId+<span class="string">",  \"text\":\""</span> + rubbish+<span class="string">"\" &#125;"</span>;</span><br><span class="line">model.setBodyStr(bodyStr);</span><br><span class="line">Map queryMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">model.setQueryParams(queryMap);</span><br><span class="line">WxApiCall call = <span class="keyword">new</span> WxApiCall();</span><br><span class="line">call.setModel(model);</span><br><span class="line">String jsonStr = call.request();</span><br><span class="line"><span class="comment">//System.out.println(jsonStr);</span></span><br><span class="line"><span class="comment">//方法1. Gson解析json</span></span><br><span class="line">HashMap res =  <span class="keyword">new</span> Gson().fromJson(jsonStr,HashMap<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">System.out.println(res.get(<span class="string">"msg"</span>));</span><br><span class="line">LinkedTreeMap rres = (LinkedTreeMap) res.get(<span class="string">"result"</span>);</span><br><span class="line">System.out.println(rres.get(<span class="string">"remain"</span>).getClass());<span class="comment">//获取类型</span></span><br><span class="line">LinkedTreeMap rrres = (LinkedTreeMap) rres.get(<span class="string">"result"</span>);</span><br><span class="line">List resList = (List) rrres.get(<span class="string">"garbage_info"</span>);</span><br><span class="line">LinkedTreeMap garbage_info = (LinkedTreeMap) resList.get(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"垃圾类别:"</span>+ garbage_info.get(<span class="string">"cate_name"</span>) + <span class="string">",额外声明"</span>+ garbage_info.get(<span class="string">"ps"</span>));</span><br><span class="line"><span class="comment">//方法2. FastJson解析</span></span><br><span class="line">HashMap res1 =  JSON.parseObject(jsonStr,HashMap<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">JSONObject res2 = (JSONObject) res1.get(<span class="string">"result"</span>);</span><br><span class="line">JSONObject res3 = (JSONObject) res2.get(<span class="string">"result"</span>);</span><br><span class="line">List resList1 = (List) res3.get(<span class="string">"garbage_info"</span>);</span><br><span class="line">JSONObject garbage_info1 = (JSONObject) resList1.get(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"垃圾类别:"</span>+ garbage_info1.get(<span class="string">"cate_name"</span>) + <span class="string">",额外声明"</span>+ garbage_info1.get(<span class="string">"ps"</span>));</span><br></pre></td></tr></table></figure>
 
-<h2 id="jQuery实例"><a href="#jQuery实例" class="headerlink" title="jQuery实例"></a>jQuery实例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.通过按钮点击给多选框反选</span></span><br><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">"ul.uu input:checkbox"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>,!$(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSON创建"><a href="#JSON创建" class="headerlink" title="JSON创建"></a>JSON创建</h2><p>由Java对象创建Json范例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义类， JSON结构里面有&#123; &#125;就定义一个public类，看到[ ]就定义一个List即可，最后只剩下String、int等基本类型直接定义就好</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String info;</span><br><span class="line">    <span class="comment">//Constructor &amp; getter &amp; setter</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book b = <span class="keyword">new</span> Book(<span class="string">"book1"</span>, <span class="string">"apple"</span>);</span><br><span class="line"><span class="comment">//String json = new Gson().toJson(b);//定义在类中生成空串？类外生成合法Json字符串</span></span><br><span class="line">String json=JSON.toJSONString(b);</span><br><span class="line">System.out.println(json);</span><br></pre></td></tr></table></figure>
 
 
       
@@ -238,6 +248,10 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
@@ -295,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/10/19/jQuery%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://weidongz.github.io/2020/09/28/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B9%8BJSON%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/30/Java%E4%B9%8B%E6%9E%9A%E4%B8%BE%E3%80%81%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据库之进阶技巧
+          Java之枚举、注解与反射
         
       </div>
     </a>
   
   
-    <a href="/2020/10/16/JavaScript%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript语言简介</div>
+    <a href="/2020/09/28/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B9%8BXML%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前后端交互之XML使用范例</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery参考链接"><span class="toc-number">1.</span> <span class="toc-text">jQuery参考链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用jQuery库"><span class="toc-number">2.</span> <span class="toc-text">引用jQuery库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery基本使用"><span class="toc-number">3.</span> <span class="toc-text">jQuery基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery实例"><span class="toc-number">4.</span> <span class="toc-text">jQuery实例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON格式"><span class="toc-number">2.</span> <span class="toc-text">JSON格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON解析"><span class="toc-number">3.</span> <span class="toc-text">JSON解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON创建"><span class="toc-number">4.</span> <span class="toc-text">JSON创建</span></a></li></ol>
                     </div>
                 </span>
             </div>
